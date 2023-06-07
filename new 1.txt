@@ -1,0 +1,1401 @@
+resturant :    https://www.youtube.com/watch?v=4y-_3Ayiauw&list=PLRv_Gd5w9e7mEe_qzKhrbh4y3oGbEmQar
+
+https://www.remove.bg/upload
+https://pixelied.com/editor/design/647e1da165873c5300ce4bd5
+
+https://convertio.co/download/b9e4b9c44de0bc799bf17b5bfb94b37254f996/
+
+https://www.befunky.com/create/resize-image/
+
+study music:  https://www.youtube.com/watch?v=sjkrrmBnpGE
+
+Scroll Animation - library used is AOS :   https://michalsnik.github.io/aos/
+
+ICONS: https://feathericons.com/
+
+GOOGLE FONNTS:
+selected 500, 600 : https://fonts.google.com/specimen/Poppins?query=po
+
+Global styles: 
+we will add fonts we are going to use
+all global variables
+
+html {
+    font-size: 10px; ---- we give this 10px because when we use rem and em it will be easier to calculate
+    overflow: hidden; ----- we dont want a horizonatl scroll bar because in feature we might add more features like menu and stuff like that which will go out of the viewport
+
+Next we are going to have all our variable for the project
+: root as folows: 
+ --green-1:#26643b; etc /// This are all the colors we are going to use in our project
+    --green-2: #a2de96;
+    --lightGreen-1: #d6e5d8;
+
+For our body lets say our background color would be from our variable light green2
+
+section {
+    padding: 100px 0;// means at the bottom and top of every component we have 100px padding - so thats how we will have a nice looking layout ////NOTE : this padding will be huge in small devices  thats why our number  ----(max-width:768px  --- goes to the smaller device we can say the section will have padding of 50px top and bottom instead of 100 eg
+
+section {
+        padding: 50px 0px;
+    }
+
+}
+
+
+.container {
+    max-width: 1200px;// this means the content of our website will remain in max width of 1200px as you can see all the 
+    width: 90%;		// that is when ever you are on large devices
+    margin: 0 auto; // this is to keep everything in the center
+}
+In our website if you notice the layout the CONTENT is not actually is not having all the width( that is on the sides) 90% on the left hand side and 10% on the right. So for each of our component the width will be 90%
+
+1.8 rem font size means 18px
+
+-----------------------------------------------------------------------------------------------------------------
+			NAVIGATION  MENU
+Everything will be inside the container line17
+
+    
+For the logo ---- when someone click the logo will always be in the "HOME PAGE" so we create  an  <a>  and link it to the index page
+
+NEXT : After the anchor tag(logo) lets create the navigation
+ we start creating  div nav-icon inside that we will have our -Nav icons means hambuger icon (for the icon we will use feather icons) is open source you can contribute. what I will do I will go to their GITHUB. on github do ctrl+f to open a search box and search for menu and you will see the icon. Then open the menu.svg and click code , copy the code and paste inside you code eg. Then refresh the page you will see the menu(hambuger)
+
+THEN NEXT: After that div, lets crreate another div with calss of nav--bgoverlay
+
+THEN NEXT : After that div lets create ul tag and give it a class " nav--list" inside this  ul we will have a "div with a class of nav--close (so we will have the close icon, so go get it from github) then paste the code inside the "div"
+
+THEN NEXT : After the (x) div we will have another div our " list-- wrapper" with a class of nav--list--wrapper, then inside this we will have li tag the first one that means is an achor tag and the link will be for the "home page"
+
+THEN NEXT : Duplicate the li tag and update to about, contact etc
+
+THEN NEXT : We create another li tag for the button , and lets link that with the   "booking.html"
+
+NOW LETS HEAD OVER TO OUR COMPONENT.CSS TO STYLE OUR NAV BAR: If you see the complete project when you click on the nav menu say "about" you see that the nav menu is still dispayed at the top, it doesnt  go anywhere. There will be some elements which will be re used multiple times inside the project so  for such elements we willl use "COMPONENT.CSS) for example  time icon, geo loaction and phone. So right now this component is on the about page, iF igo to home page I can still see the same component there. so this we dont need to write the css twice we can write the css once and it will be inside the component .css and we can use the same component when ever we want. ALL THE RE USABLE COMPONENT STYLES WILL BE INSIDE THE COMPONENT.CSS
+
+
+IF I HOOVER ONE OF THE <li> the nav link the color will be the green one eg
+
+GLOBAL BUTTONS STYLE: WE HAVE 2 classes eg btn and btn primary : where we have btn primary when ever we hover on the button we will change the color will be white and the background color will be green. SO THIS WILL BE THE PRIMARY BUTTON STYLE. 
+THE BUTTON LOOKS A LITTLE BIT SMALL WE NEED TO MAKE IT A LITTLE BIT BIGGER, WE WANT TO USE MEDIA QUERRY, NOW LETS GET MEDIA QUERY. Now after adding media query you can see that we have a larger button eg book table
+
+LOGO CUT OFF ON SMALL DEVICES : IF I GO TO OUR GLOBAL CSS FOR THE IMAGE WE HAVE SOME STYLE eg the object-fit is actually cover instead of cover lets have the contain 
+img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover; /contain
+}
+
+ NOW WE HAVE OUR NAVIAGTION MENU WHICH IS LOOKING GOOD FOR LARGE DEVICE, BUT IS NOT LOOKING GOOD FOR SMALL DEVICE: WHAT WE NEED IS THE STYLE FOR MOBILE MENU - SO LETS DO THAT : LETS NOW CONTINUE WITH OUR GLOBAL  NAV MENU STYLE. WE NEED TO CREATE MEDIA QUERRIES FOR THIS. So (max-width: 768px) means inside this max width when you go inside this 768px we will have that style which is defined below 768px means we will be in a smaller device . we will say the nav will have a position of relative beacuse we will have some elements position absolute
+@media only screen and (max-width: 768px) {
+    
+}
+
+line 38  display block means previously if you remember we said display none, but now if I say display block we will see hamburger menu on mobile device
+ .nav--icon {
+        display: block;
+    }
+}
+
+AFTER THAT LETS ALSO GO TO THE SVG NAV ICON: And her lets say pointer events will be none, width and height will be 30px, so it looks great 
+
+LETS ALSO OUR "close icon" ---- so below line 41 eg  .nav--icon svg { we say : nav -- close then display absolute. The other thing we want to add the the same css elements we have defined on the  .nav--icon svg {
+        pointer-events: none;
+        height: 30px;
+        width: 30px;
+    } SO lets say .nav--close svg will have the same thing , so we add this calss to the  .nav--icon svg (see line 42) THEN we add position  aboslute because we want the close button to be with the menu.  right: (1rem and top 1rem)  postions the "X" to the top right corner note this is on modile device. THE CLOSE BUTTON IS DONE NOW WE NEED TO STYLE THE  (menu for mobile device)
+
+NOW WE ARE STYLING THE MENU FOR THE MOBILE: The class we are having is the nav--list
+for that we  z index would at the top, from the whole website we need the menu at the top,  so  that nothing will interfer with the menu.  display: flex; becoz we will make everything centered.  transform: translate(0% this remove the X, and keepmthe hamburger sign); line 68  zero for the initial state. SO THATS HOW WE GONNA MAKE IT FUNCTIONAL
+
+NEXT LETS SAY WHEN EVER WE HAVE CLASS CALLED (nav-list show) we will have this class with javascript ---SO when ever the show class is added we are expecting to see the menu in the screen , to see the screen we can say it will -100% from the right side(hamburger menu)
+Now lets add the show class in our index html, so this will be with the nav--list class ( add show to the nav list thats all)
+
+SO we have the show class we can see the nav menu now, so when ever we remove the show class  we will not see it. so thats how   we will make it functional. from our code you can see that the menu should be     height: 100vh; but in our case is just half of that is only having few pixels is not having the whole  100v height. the reason behind that in our global style you can see that in our body we have overlfow hidden and thats what we don't need right
+
+if I remove that you can see that we have the menu. so if we remove that now you can see that we have the menu eg reomved thisbody {
+    background-color: var(--lightGreen-2);
+    /* overflow-x: hidden; */
+}
+now we have the 100vh menu list and you can notice now it is also having a disply flex  and the align itmes is center and thats why from this whole  div it is actually positioned center, and also we are having the justify  content flex-end it will work in a moment. AND you can also see that we have a width of 80% and you can see the 20% is the white part which is left.  overflow: hidden; means when ever someone go outside of the element it will be hidden. thats the explanation code.
+
+NOW MOVE TO OUR LIST:
+
+NOW NEXT LEST SAY FOR THE <a> tag want to change the font size : so we say .nav--list a { line 82
+
+THEN FINALLY FOR FOR NAV OVERLAY eg line 94 and this will be a color for the (background) eg  background: rgba(18, 24, 14, 0.808); and it is actually something like with the opacity of something like  ,8 thats how the elements behind the nav overlay you will see it because is having the opacity of .8. THEN after that the display will be none for now. after that we will have a display block overlay it will be acttivated,(line 95) but we dont want it in the initial state, so when ever we will open this menu whenever we hover on this menu eg (X)(mobile) we will activate the overaly. SO whenever we have display block we will see the overlay otherwise it will be none. SO LECTS ACTUALLY  KEEP IT DISPLAY NONE
+
+THEN LETS SAY WHEN EVER WE HAVE A NAV OVERLAY - eg ine .nav--overlay active --- so we will have active class with that, but we will make this display:block see line 99, it will not work now because we dont have the active class. so lets create the active class. go to index html line 38 NOTE WE CAN HAVE MORE THAN ON CLASS IN AN ELEMENT. So whenever we have active class we can see the overlay is working. SO NOW WE ARE DONE WITH THE STYLING. NOW WE NEED TO MAKE IT FINCTIONLIZE SO REMOVE THAT ACTIVE CLASSES WE ADDED AND LETS DO THAT WITH (JS) AND ALSO LETS REMOVE THE (show) class form THE NAV LIST eg line 39
+
+SO ONCE WE REMOVE THOSE CLASSES YOU SEE THE MENU IS GONE, SO WE WILL DO THE FUNCTIONALITY WITH (JS) So create main.js
+
+NOW FIRST OF ALL WE NEED TO GRAB THE ELEMENT, SO WE NEED TO GRAB THE CLOSE ELEMENT, CLOSE BTN AND ALSO WE NEED TO GRAB THE NAV ICON SO LETS BEGIN: So we start by saying  "const navIconEl  and we will grab it with document dot query selector, then what is the "selector for that?? And as you see for the "nav icon " the class is .nav--icon see code on main.js line1
+and same for the nav--close icon see line2
+
+THEN the last one we need id the  "nav--list" so we say const nav--list equal to document dot query selector see line3.
+SO NOW WE HAVE ALL THE 3 ELEMENTS IN OUR main.js eg line 1, 2, 3 and also the 4th one will be nav--list overlay
+
+SO NOW WE NEED TO DO SOMEHING WITH THIS ELEMENTS, WHAT WE NEED TO DO IS TO CREATE A FUNTION - We need to creat a unction for (open the navigation) so lets do that : we say connst name is navOpen create an arrow function here we say = ( ) => {
+see line7.  THEN INSIDE THE FUNCTION BODY: what we will do-- We will need to open the navigation menu eg the Hamburger menu--- in order to do that we need to add a class  inside the " ul class = "nav--list" line39 which will be the show class
+
+So inside the function I can say navlist dot classlist dot add  and inside  this ( the name of the class you want to add in our case is "sho" )eg line 8 main.js. And also what we wanna do --- when ever we open the nav menu we also wanna activate the "Bgoverlay" For that we need to add an active class with that bgoverlay eg we say navbgoverlay dot classlist dot add and the name of this class is active eg see line9
+
+AFTER THAT: We need to also for example if I go to the nav menu for mobile device, so when ever we will click on this menu (the hamburger menu icon to open) you can see that we cannot scrroll, becuase we have specific styles in the body -- so we will add some style to the body element so we can say " document dot body dot style so we will add some style to the body element for exmaple we will add visibility: visbble  first of all and also the height it will be fixed height which will be 100vh and also the width will be 100vh and overflow will be hidden eg line10.   SO when ever we open our nav menu we will have this specific style line10  (so we have overflow hidden , now we have specific height and width we cannot scroll
+
+NOW if you notice the style you can see that visibility we have visible( we will get back to the visibility thing in a momnet) also we have 100vh height( means the height of the whole website will be 100vh. thats the reason we cannot actually scroll anymore whenever you have a 100vh height. adn what ever element will be outside of this 100vh height will be hidden because we have overflow hidden. So thats how we can disable scrolling by using height 100vh when ever we open the nav menu. And we will see it in a moment
+
+ALSO WE HAVE TO CREATE ANOTHER FUNCTION TO CLOSE DOWN NAV MENU: So we say const navClose and create a arrow function line14 { then inside the function body we need to do the opposite thing that we are doing here with the (navOpen) SO first thing we are doing in the navopen we are "adding" a show class we need to remove the show class --- so  is a similar thing but reverse. 
+
+Now inside the fnction body fist of all we say navlist dot classlist dot remove ---(so instead of add we are using remove here which is opposite of adding calss so it will remove the class) line15
+
+THEN NEXT: We need to remove the active class --- line16
+
+SO RIGHT NOW WITH THE (document. body. style) - we cannot scroll actually -- so we need to get back our initial style for this body element.
+
+For that what we need to do : we say document dot body dot style  and for that style lets say visibility will be visble always, height will be initial, the wisth will be 100% always and finally overflow-x will be hidden line17 . what we are is is the heigh will be iniatl means (what we have in the initial moment) and also the width will be 100% and as you can see we are not having a specific height anymore thats why we will have the scroll back.
+
+NEXT WE ADD EVENT LISTER TO THE FUNCTIONS: What is event listner, whenever we clck on the element(for example the hamburger icon is an element/nav icon)--- so we say navIconEl dot add event lister so whenever we will "click" in this element what will happen, so when ever we click on this element(nav icon) we will open the nav so lets us call the (navOpen) fuction eg line20
+
+SO NOW WHEN WE CLICK ON THE (nav icon is not working) because we didnt link our main.js file with the index file. so lets do that. SO lets go to our body before our closing body tag we say script, then src then the name of the file which is main.js line 73.
+
+NOW LETS TEST THE NAV MENU(click the icon): Lets clcik it --- YES is working. Right now if I open the inspect I can see my "active class and the show class). 
+NOTICE : Close the nav menu and open again at the same time look on the dev tools to see what happens when you open the nav menu immediately -- (you see active and show class firing on dev tools)  --- SO THAT IS WHAT IS ADDED BY : The two lines in js. file eg line 8 and 9 and I again as you can see we CANNOT SCROLL ANYMORE WHEN WE ARE IN THAT MODE BECAUSE WE HAVE 100vh HEIGHT AND 100vw WIDTH
+
+YOU CAN ALSO SEE THOSE THING WHENEVER YOU GO TO THE BODY ELEMENT eg on dev tools, You will see  (body.style = visibiity: visible, height 100vh, overflow hidden etc and thats why you can nnot scroll even if you have enough content on you page. you cant scroll because we have a fixed width and overflow hidden
+
+NOW LET'S DO THE SAME THING FOR THE CLOSING MENU eg ADD EVENT LISTER: So the event will be "click or we are listning for a click) and what we wanna do -- so we wanna close this fuction eg const navClose = ().line21 NOW LETS TEST IT: YES IT IS WORKING
+
+THEN ANOTHER THING WE WANT TO ADD WHEN I CLICK OUTSIDE THE NAV MENU: Meaning when ever I click in the (grey area eg the bgoverlay element) it should close the menu. 
+LETS ALSO ADD THIS FUNCTIONALITY FOR THAT WE SAY : navbgoverlayEl (menaing the grey area) so we can also add an event lister to this so whenever we click on it we will call the const navClose = () function line22. so lets test it now --- when ever you close on the grey area the nav menu closes
+
+NOTE: ONE MIGHT ASK WHY DO WE HAVE THIS: "overflow-x: hidden, let me show you if we remove it - so what we will have now is we can see our menu with extra space if we scroll horizontally , so we dont want that. That hepls to hide the elements that will be out of our view point thats why we are using the 9 overflow-x: hidden) is for that purpose
+
+NOW NEXT WE NEED TO GO BACK TO OUR GLOBAL STYLE: If you remember we removed our our overflow-x hidden from this  body styles which is inside our global styles file. So lets go back to that file and  we need to add one more style in the body. Which is the overflow-x hidden line19-21, which will make sure that whenever you will come to the website and try to scroll horizontally nothing will apper from left or right side. So everthing in the horizontal space out of the view point evertyhing  will be hidden in the horizontal space
+
+--------------------FOOTER--------------------------
+WE head off to the index file and getstarted with the footer, so just above the script tag and we start with a class div conatiner and inside that container we will have our footer wrapper first and inside that we will have our columns. 
+
+So now lets create the fist column first of all. So now lets start by creating a div with a class of footer 1 inside the wrapper. so inside this col1 we will have logo first of all. so div with a class of footer log, then inside that I will have my image, so grab the logo image, the add alernative text eg fran's cusinine. and if I go to the project you can see the logo. 
+So after the footer logo lets create a PARAGRAPH TAG inside the  this <p> tag we will have a class called footer description. and inside that we will have some text eg (fresh and delish food)
+
+Now after the paragraph lets create our social links. So lets create another <p> tag after the "desc p tag" Then inside the <p> create a div with a class footer socials and inside that we will have our icons. For the first one,  actually before that we create a h4title "follow us"  for our social links. After the h4 we will have our oredered list and inside that we will have list items and for each of the list items we will have the icons.
+
+SO for the fist one lets actually wrap it in <a> TAG and inside the anchor tag we will have our icons. so for the icons we will use  feather icons. go to their github because we wanna grab svg so lets search for facebook, scroll downinside icons folder and look for facebook copy it and get the code and paste inside the <a> tag. Now duplicate the <list>tag twice  and change the svg's so that it we are done we dont need anything else. So thats the first coloum done.
+
+The remaining 3 columns actually look prety much similar, so we can actually keep it prety simple. So after the whole 1st column. So after the clossing <div> of that 1st column, we will have another <div> of footer column 2. Inside that we will have atitle first of all. so <h3> with a class of footer-text-tilte. then we will have links inside the <h3> so title (links)
+So after the <h3> tag we will have our ordered list for all the links. so create an <ol> tag and inside it create <li>tag
+We will have a clss name of "footer--text" in ol tag. Then inside our ordered list in side the <li>tag we will have our first <a> tag. So for the first one lets say it will be the for the " home" so for the "home pahe we just say Home, and for the link we just link the index page because thats the home page. so those are linked with the page as you can see that for example" href index.html",   " href about.html",   " href menu.html" etc
+
+We can create another link and call it "privacy and policy " we dont have privacy but we just keep it. So this will be similar for our 3rd coloum so we just  duplicate this. Then after that instead of having the "Links as a title we wanna change that to support". The for te first link we will have "contact"
+
+THEN THE LAST ONE WILL BE THE CONTACT COL: We can actully duplicate footer2 and update the text. So thats it we have all the footer content. NOW WE NEED TO STYLE THAT, SO WE WILL USE COMPONENTS.CSS BECAUSE ONCE AGAIN THIS IS SOMETHING WE WILL HAVE IN EVERY PAGE
+
+OVER TO COMPONENT.CSS AND WE STYLE OUR FOOTER: First of all we will style for mobile device  and then we will make it responsive for larger divice. 
+
+So for the footer lets give it a background color --lightgreen
+ 
+footer -wrapper- 133-136 now you can see that on the first coloum and second between them we have something like 3 rem gap and also with the other ones
+
+NEXT: Lets style the logo 139 -142 - we use width and margin-bottom
+
+NEXT: Lets go to the footer desc 144-148: 
+
+NEXT WE GO TO : footer socials title 150-153
+
+NEXT WE STYLE SOCIAL ICONS:We say footer socials li( that is we grab all te li's) 156 - 158
+
+NEXT LETS STYLE THE <a> tags INSIDE THE <li> : So we say footer socials <a> tag, 162-166
+
+CHANGE SVG ICONS:  we also need to change the color of the svg (note the svg code we have in index page). So we we say (footer socials svg (means all the svgs) 169-172
+
+NEXT LETS STYLE OUR COLUMNS ( footer text title) : So for the next column --- and if you remember the remaing 3 columns have the same style thats why when you remember we duplicated the columns. For examlple you can see that all the 3 columns they are are having the same class name eg (h3 class="footer--text--title") because they will have the same style. 174-178
+
+NEXT LETS STYLE THE <a> TAGS : eg footer-- text-- a eg 181 - 187 --So thats it for our mobile device
+
+NOW LETS MAKE THE FOOTER RESPONSIVE FOR THE LARGE DEVICE: So lets get media query here : so we say media on the screen min width (768px). Because we are going to style the larger screen min-width will be 768px menas when ever our device width is larger than this 768px. We will have the style which we will define inside this media.
+So we say footer  wil have line 191-193
+
+NEXT IS FOOTER WRAPPER : So footer wrapper will have flex-direction row: This will put everything(coloumns) in a row 196-198. So if you look at the 4 columns thatw e have the first column will nedd more space than the other 3 columns. because the coloumns have links only. And the first one is having some logo and some description so this will need a little more space. SO for that we can specify how much space it will take.
+
+So for that we can say footer--col1 . the flex will be 4 eg line 200-202
+
+Then for the other 3 coloumn  lets also specify it we say col2,col3,col4 so for this 3 will have a flex of 2. now you can see that the 3 coloumns have less space than the first one eg 204 - 207
+
+THEN NEXT LETS GO TO OUR DESC: We need to make it a liitle bit large font size eg210-213
+
+THEN NEXT LETS GO TO OUR SOCIAL TITLES: So we say footer social tiltles will have eg 216-218
+
+FINALLY WE NEED TO ADJUST THE LINKS: For the 3 columns, so we say footer--text--title will have eg 221-223
+
+FINAALY <a>TAGS MEANING ALL THE LINKS: will have 228-229 (also see  changes line 187) FOOTER IS DONE NOW
+
+NOW WE NEED TO MAKE THE COPYRIGHT SECTION: We go to index.html after the footer closing tag is where we make out copy right. So lets create a <div> with a  class of copyright, actually we can ctrate an id. Then inside that we create a container, then inside our container we have a <p> tag(class copyright text) which will be our copyright text 165 index.html
+In our small device it is not looking good - so we need to give it some style in components.css
+
+So we do that after footer media query eg line 234-236
+After that we do copyright--text and will have 239 -241
+
+AFTER THAT WE CAN CREATE MEDIA QUERY FOR THE LARGE DEVICE:NOTE -min-width 768px is the similar media query we have, so for our footer when someone go in a device higher than the width of  768 px  or larger we will increase the font size line 244-247
+SO THATS OUR FOOTER NOW COMPLETE
+
+NEXT ADDING NAV AND FOOTER TO ALL THE PAGES : To do that copy all the code in index.html and paste it in every page we have created. so lets start with menu page. 
+Then on line 54 you can see it says :   <h1>This my Homepage</h1> so lets change this to "menu page"
+
+Then next is the about page , so we do the same thing. SO NOW WE HAVE NAV AND FOOTER IN ALL THE PAGES.
+
+NOW IF YOU NOTICE: I am in  menu page but on url the title of the page it is still home -- The reason behind that we did not change the TITLE FOR OUR PAGES for example if  you scroll to the top in our menu page the where it says "the title you will see that it is still home" 
+SO WE SHOULD CHANGE THAT : "menu instead of home" now save and test it. NOW THAT WORKS, THEN UPDATE ALL THE PAGES
+
+
+NEXT SECTION IS THE HERO SECTION: NOW LETS ADD OUR HOME PAGE CONTENT -- THE FIRST THING IS OUR HEADER SECTION WE HAVE: The text on the left and image on the right both side by side.
+
+First of a ll let us make our first section for the home page
+So  in our index.html where there is "End navbar section" -- Below that remove the dami <h1> eg "This is my homepage" And we start putting a comment start / end hero section
+So between that we will have our html for the "HEADER SECTION": Lets creat a section with an "id name of hero" inside the section we will have a div class container. Inside class container we will have another div with class wrapper. Then inside our column we will have left columns and right columns
+
+So we will create a div with a class of hero--left, then inside of this left column lets also have a div with a class of left wrapper. Then inside that we will have our content. First of all <h1> which will be the "HEADING" so lets have a class hero--heading call heading "The flavour of tradition" and after that we will have some information. For that we will use a <p>tag with a class of hero--info , copy paragraph text and paste.
+
+THEN NEXT : Lets also have the buttons explore more and book table as shown. So after the <p> text lets have a div with a class of button-wrapper. Then inside that lets get our first button with a blank link, with class of btn and the first one will be btn primary and the text will be "expore menu"
+
+Then if you refresh the page you can see that the button is already styled, this is from the global style we already have.
+
+We will aslo have another button which is the secondary button, and for this button we will have only one class which is btn and the text will be "book table"
+Now we have  the two buttons.
+
+After that on the right side we will have the image. So after the "hero--left div line 57" lets make another div with a class of hero--right. inside that we will have another div with a class of hero--image--wrapper, and inside that we will have our image which is the "heroImg.png" if you refresh the page you can see the image.
+
+THEN NEXT WE NEED THE STYLING: SO FOR THAT LETS CREATE A NEW STYLE SHEET WITH THE NAME OF "home.css" This style will be used only in the home page. All the home page style will be added here. We can link this "home.css" in our "head section" (link:css)
+
+So in our home.css lets have a comment hero section, so for the .hero--wrapper lets say display will be flex, alig items will be center, we also have flex-direction column because first of all we will make it responsive for mobile device.
+
+ SO THIS WHOLE WEBSITE WILL BE MOBILE FIRST DESIGN MEANS WE WILL STYLE IT ON MOBILE DEVICE FIRST AND AFTER THAT WE WILL MAKE IT RESPOSIVE FOR OTHER DEVICES --- Thats why we have it flex - direction cloumn line 2-7
+
+THEN NEXT: We do hero-left-wrapper line 10-11
+
+THEN NEXT: In our HERO IMG WRAPPER 14-17:  margin: 0 auto; (make it center)
+
+THEN NEXT: WE GO TO OUR HERO HEADING: line 20-27
+
+THEN NEXT: LETS STYLE HERO INFO: line 30 -34
+
+THEN NEXT: BUTTON WRAPPER : line 37-39
+
+NOW IN THE FINAL PROJET YOU CAN SEE THAT THE IMAGE SHOULD BE AT TE TOP AND THE TEXT SHOULD BE BELOW THE IMAGE. BUT IN OUR CASE THE TEXT IS AT THE TOP AND IMAGE BELOW. SO LETS FIX THAT : What  we ne need to do is , insiead of having  (flex-direction : column) line 6 we can say -- flex-direction : column-reverse -- which will actually reverse the position
+
+THEN NEXT WE NEED TO MAKE IT RESPONSIVE FOR THE LARGE DEVICES: WE NEED TO MAKE MEDIA QUERIES TO MAKE IT RESPONSIVE
+
+min-width will be (768px) So whenever we will be in this range 768px means when ever our device are more than 768px as you can see on dev tools our device is 884 which is obviously more tha 768px so in this case what we need to do --- we need to say that the hero--wrapper flex-direction will be row --- ( note previously we had it as flex-direction- column-reverse line 5 and for now we are having it as column row for the same element)
+
+As you can see when ever you have flex-direction row , you will have the left and right elemets in the same row as you can see on ipad mini view. THATS WHAT WE WANT. we dont need any gap ehere so we say 0 line 41-44
+
+THEN NEXT: Also we do hero left, this will be flex 3 line 46 -50 and for the "hero--right flex will be 4" which means the right side will have more space than the left side
+
+THEN NEXT: .hero--heading: Right now we have the small heading we need to increase the font size line 52-55
+
+THEN NEXT : .hero--info line 57-60
+
+THEN NEXT: For the button--wrapper instead of having this "center" we can say that butoon wrapper will have a text align of left line 62-63
+
+FINALLY FOR OUR hero-imgwrapper 65-67
+
+THEN WHAT WE NEED TO DO IS TO MAKE IT ANIMATE:
+
+ So for example if I refresh the page you can SEE ANIMATION
+So for the animation if you remember we already have the we aready have the link here called  "aos eg  <!-- AOS CSS Library --> line13". So you can see that we have the css and the script eg 196 for the aos library that we are going to use for the animation
+
+HOW ARE WE GOING TO USE THIS : First of all we need to to initilaize that, so first of all lets go to our main.js. So to do that at the bottom of our js file. So we say AOS.init( ) and inside of this function we need to send this object eg {and inside of this object we will have some options} for the library offset of 200 first of all for the scroll, the delay 100, for the animation, duration for the animation will be 400, and finally easing function that will be used by this animation library is "ease". After that let say once it will be false NOTE I WILL EXPLAIN THIS LATER. The anchorPlacement: 'top-bottom'---- this mean when the animation will start. "anchorPlacement" means when our element top and the viewport(screen bottom where we have images/ or container) bottom will meet then the animation will start.  video TS: 2.04 EXPLAINED
+
+You cn see that we have set the offset to 200 thats it when ever we scroll more 200px from the food img element, the animation will then start. So it will not start in the top zero eg anchorPlacement: 'top-bottom' it will start at something like from the top 200px
+
+"once :flase" - I SAID I WILL EXPLAIN: This means we have the animation -- it wont happen once, it will happen whenever I scroll. line 25-32 js SO THAT ALL FOR THE INITILIZATION . IF YOU WANT TO KNOW MORE ABOUT THIS "INITILIZATION" CHECK OUT THE DOCS
+
+SO RIGHT NOW THERE IS NOTHING HAPPENING WHEN WE REFRESH THE PAGE TO SEE THE RESULTS : So for having the animation I need to add AN ATTRIBUTE IN OUR HERO --means in our hero section. I need to say that in the left hand side we will have the "data-aos attribute = and we need to specify what animation we want, we say "fade-left" now refresh the page line 59 index
+
+You can see that we are having this fade left animation eg this is seen on the heading and info section or the hero.
+
+THEN LETS ALSO DO THE SAME THING FOR OUR RIGHT: And when we have that done , we can see animation fading right. line 70 index
+SO THATS IT FOR OUR HOMEPAGE , IT IS DONE!!
+
+THE NEXT SECTION IS THE STORE INFO: AFTER THE HERO SECTION WE CREATE " THE STARTER's SECTION" THE INFORMATION THAT WE WILL HAVE IS: The timings the store open, the address and the phone number. THIS IS INFORMATION ABOUT THE STORE. 
+
+LEST CREAT THIS SECTION: THIS GOES AT THE END OF THE "Hero section" 
+
+line 79 - 113 index
+First we create a comment eg "resturant info start and end" then between this two comment we will have html for the rest-info.
+So lets start with he id name it will be section store/resturant info- so "storeInfo it will be an id for this section. Inside that we create div container and inside that we create " resturantinfo--wrapper". Then  inside the wrapper we will have our item as you can see that we will have three items. So lets create those with a div with a class of storeinfo/resturant--item. 
+And say inside of the first item we will have our icon so lets make a div with a class of "storinfo/resturant--icon" so inside of that div we will have our icons.
+So inside that we will have our icon, so for the icon we already have those icons in our image folder, so lets go to our folder we say img src ./imagefolder inside that we have our icons -- the first icon wil be the wall clock icon. then refresh the page and you should see the the clock icons.
+
+Then after the <div> icons lets create our <h3> title also lets give it a class and the name will "title and inside the <h3> we will have our text which will be as " 10 am - 7 pm", after h3 we will have a <p> with text " opening hrs". then refresh the page and you can see the opening hours and the title.
+
+So we will have three icons - lets duplicate the first icon twice. Then lets change the content. So the second icon will be address icon svg and we change the text. do the same to the next phone icon.
+Now we have all of our three icons. If you remember this component will be used in multiple pages. So whenever I go to contact page , we will see exactly the same section.
+
+NOW WHAT WE NEED TO DO IS STYLE THIS SECTION IN OUR COMPONENTS SECTION: IN THE COMPONET  CSS FILE , LETS PUT THIS STYLE AFTER THE FOOTER-- So start with a commment "resturantifo styles"
+
+So lets start with -- resturantInfo--wrapper line 252 -217{ 
+
+THEN NEXT : Lets say for our individual item,  line 260-265 we say "resturantInfo--item" we will have a background color
+
+THEN NEXT WE NEED TO STYLE THE ICONS BECAUSE THEY LOOK HUGE: So lets say  line 268-271 "resturantInfo--icon"4
+
+THEN NEXT: Lets go to our title we say line 274 278"resturantInfo--title"
+
+THEN NEXT: Lets have <p> text style eg "resturantInfo--text" line 284-285 
+
+NOW EVERTHING IS LOOKING GOOD: BUT NOTICE SOEMTHING---- you can see that the height of the first icon and scond icon is not the same. the first one is higher than the second one. so to keep the height the same we can change this line 254 or comment it  " align-items: flex-start;" and make it strech instead of flext start.
+
+NOW IS LOOKING GOOD IN OUR SMALL DEVICE
+
+NOW LETS SEE HOW IT LOOKS LIKE IN OUR LARGE DEVICE: IT IS NOT LOOKING GOOD. SO IN THE END OG OF "resturantinfo style" lets get media query min-width of 768px -- so when ever our device will have minimum width of 768px or more what will happen, in this case we  will increase the "gap first of all " eg (storeInfo-- wrapper) the gap will be 2 rem instead of 1 rem we did for mobile. Now you see the gap is a little bit more now 289-292
+
+NEXT IS : ( resturantInfo--item) line 293 - 295
+
+AFTER THAT WE GO TO: (resturantInfo--icon ) Lets increase the size line 297
+
+AFTER THAT LETS ALSO STYLE THE ICONS : (resturantInfo--title) we will say  font size will be 1.8rem line 301-303
+
+THEN NEXT: We style the text eg ( resturantInfo--text) 305 -306
+SO WE NOW DONE WITH THIS SECTION AND IS FULLY RESPONSIVE
+
+BEFORE WE MOVE TO THE NEXT SECTION WE NEED TO ADD ANIMATON : For that in the index.html the heroinfo section 79, we have id of resturantinfo line 80, after the id lets also add the "data footer aos library" see line 80 eg data-aos="fade-up". Now you can see that  on scroll we have animation.
+SO THAT IS NOW DONE WITH THE RESTURANT INFO WE ARE NOW MOVING  TO THE NEXT PART.
+
+NEXT PART WE ARE CREATING OUR SPECIALS SECTION: SO AFTER THE (end store info section comment) LETS CREAT A NEW COMMENT (our specal section)
+So we create a section with an id "ourSpecials" and inside that we create a div conatiner, then inside that we will have a div with class special wrapper. line 115 index
+
+Then inside  ourSpecial wrapper we can say we will have two parts: in the left hand side we will have two cards and the right side we will have information. 
+
+So lets actually create a div for our left side, so a div with class "ourSpecial--left". Inside this left side we will have two items(cards) so inside that we will create another div with a class of ourSpecial--Items. And then individual items will have an image so inside that we will have another div with a class of ourSpecials--item--img. Then inside that div we will have our image and  alternative text. Then refresh the page --- you can see the food image
+
+AND AFTER THAT: We will have an (<h2> with a calss of ourSpecial--item--title) which is our title (sweet potatao fries)
+Then after this we will have <h3. which will be the (price) with a class ourspecials --item--price. Then after that we will have star ratings for that we will have a div with a class of ourspecials stars and inside that we will have an image with 3stars. Then refresh the page and that our image, with 4 starts adn price.
+
+THEN AFTER THAT: We will have <p> about the description of the dish. So we will create a <p> with a class name of ourSpecials--item--text. Then copy and paste the text. Then refresh the page and there is our text. up to line 145
+
+So now lets duplicate it for our next card and I will keep the content the same for now.
+
+NOW AFTER THAT ON THE RIGHT HAND SIDE YOU SEE THAT WE HAVE "Our Special Text Info" so title, text and a button. start at line 146
+
+So after the whole left div lets have, so lets have another div with a class of "ourSpecial--right". Then inside the div we will have our content. he will have <h2> which will be our section tiltle eg ( Our Specials). So after that we will create a <p> tag with a class of ourspecials--text which will be "sort of discription" so cpoy and paste the text.
+
+Then after that we will create a button  we will use an <a> -- so lets create an <a> tag and lets link it with booking.html So if you wanna book the table you can click the button. And laso we will have a class button and primary button. Then the button text "book table" NOW REFRESH THE PAGE AND FINALLY WE HAVE OUR TEXT AND A BUTTON "end line 151.
+
+NEXT WE NEDD TO ADD STYLING FOR THAT : SO WE PUT THIS IN OUR "home.css"  IT CANNOT BE INSIDE "component.css" BECAUSE THIS STYLE WILL REMAIN ONLY IN OUR HOMEPAGE
+
+So we start with our ID that we have -- #ourSpecials { line 72-73
+
+AFTER THAT LETS HAVE: The flex for the whole wrapper we say .ourspaecials--wrapper { and we will have display-flex (this put elements side by side) so we dont want that for the mobile view, what we can say is, flex-direction will be the column. now you see that is in the column now line 76-79
+
+NOW LETS GO TO OUR LEFT SIDE AND STYLE IT: So ourSpecial--left line 83 -85 { we will make it flex again. Then refresg the page and see, looks good
+
+THEN LETS GO TOUR INDIVIDUAL ITEMS: line 88-92 "ourSpecials--item" individual items { and we will have a back ground color green
+ (padding-top: 5rem;) this is because in feature we are going to have some negative margins thats why we need a liitle bit of more padding in the top
+
+THEN AFTER THAT LETS GO OUR IMAGE: eg line 96-101 (ourSpecials--item--img) { we will do margin-top and we need to calculation (-50% -2rem) thats how much we need to have a negative margin, this has removed the fre space on the card which was at the top of the image food. now the image food is sitting right at the top of the card. this has caused so much of spaces around some elements eg the food img, price and stars
+
+THEN FOR OUR ACTUAL FOOD IMAGE: eg line 104 .ourSpecials--item--img img { will have object-fit of cover 
+
+THEN AFTER THAT LETS GO TO OUR TITLE (sweet potatoes fries) AND LETS ADD SOME STYLE eg ourSpecials--item--title { for the title we need see 108-112
+
+THEN NEXT IS OUR PRICE : eg (ourSpecials--item--price) line 115-119
+
+THEN AFTER THAT LETS STYLE OUR STAR:  eg (ourSpecials--item--stars) 122-125 (NOTE : DID NOT WORK THE STARTS MOVING DOWN TO THE TEXT WHEN USING width: max-content
+
+THEN NEXT OUR TEXT: eg ( ourSpecials--item--text) line 128
+
+SO AFTER THAT LETS STYLE THE RIGHT SIDE CONTENT: eg ( ourSpecial--title) 135-138
+
+THEN NEXT IS OUR: 141-144 .ourSpecials--text {
+
+SO WE ARE NOW DONE WITH MOBILE DESIGN IT LOOKS GREAT , NOW LETS ADD STYLE FOR LARGE DEVICE, WE NEED TO ADD MEDIA QUERY: SO LETS ADD MEDIA QUERRIES :line 147-150 @media only screen and (min-width: 768px) { first of all "ourSpecials" will have padding -top of 15rem
+
+THEN NEXT LETS GO TO OUR CONTAINER : eg (.ourSpecials . container)  max-width: 900px; means: when we are on large device it will keep the width 900 px. line 151-153
+
+THEN NEXT WE IS : ourSpecials--wrapper : here lets say flex direction will be row becuse thats what we need right now. line 154-155
+
+THEN NEXT LETS GO TOUR RIGHT HAND SIDE: eg line 157-162 ( ourSpecials--right) and we make this flex2  and the left one will have flex:4, then gap 2 rem gives us a liitle bit of gap between 2 cards.
+
+THEN NEXT LETS GO TO OUR INDIVIDUAL ITEM: we say (ourSpecials--item) --individual items will have a padding of 2rem line 164-165
+
+THEN NEXT AFTER THAT LETS GO TO OUR TITLE: eg line 168-171 (ourSpecials--item--title)
+
+THEN AFTER THAT LETS GO TO OUR PRICE: eg (ourSpecials--item--price) price will be eg line 173-175
+
+THEN NEXT WILL BE STARTS: eg (ourSpecials--item--stars) will have line 177-178
+
+THEN LETS ALSO INCREASE THE FONT SIZE OF OUR TEXT: eg (ourSpecials--item--text) line 181-182
+
+THEN ALSO WE NEED TO STYLE THE RIGHT SIDE: eg (ourSpecials--title) line 185-187
+
+THEN NEXT IS OUR TEXT: eg (ourSpecials--text) 189-191 : So I think that looks good, and the responsiveness is working well. BUT THE PROBLEM IS IF I GO TO THE EXTRA SMALL DEVICE(the cards becomes very long and thin). SO I DONT WANNA HAVE FLEX HERE, SO INSTEAD OF THAT WHEN EVER I GO INSIDE OF 300PX DEVICE(eg on dev tools responsive 269 x 846) so lets get media querry for that
+
+THEN NEXT WE HAVE TO GET MEDIA QUERIES WHEN WE USE 300PX DEVICE: line 204-210  SO LETS WRITE MEDIA QUERIES FOR THAT - so when ever I go inside this range of device ( ourSpecial--left ) will have flex wrap will be wrap. So when  we have flex wrap on -- what we will have is  each card will be in each row as you se that. and aslo we need to creare a littele bit of gap
+
+THEN NEXT ALSO FOR OUR ITEM THE WIDTH WILL BE 100% (.ourSpecials--item) : eg line 209-10- as you can see that is LOOKING FULL RESPONSIVE. 
+
+THEN THE FINAL THNG LEFT IS WE NEED TO ADD THE ANIMATION: We need to add that "data attribute"  in this whole section.
+So the data attribute will be in "#ourSpecials"line115 and we set it to fade-up ( and you can also test that and see what will look better for you) Once we have the attribute you can see that we are having the scroll animation
+---------------------------------------------------------------------------------------------------
+
+NEXT SECTION IS TOP DISHES SECTION 
+
+Our next section we will create our top dishes and this will be present in multiple pages : so if I go to our menu you can see that this is the exact same thing we have in our  HOME PAGE IN OUT TOP DISHES: THIS WILL BE A COMPONENT AND WHICH WILL BE USED IN MULTIPLE PLACES.
+
+SO LETS CREATE THIS TOP DISHES: we create a comment line 160-207 index (top dishes) and between them we will have the html for that.
+
+Fisrt of all lets create a section with an id of dish grid and inside of this section, we will have div with a class of conainter, and inside that we will have an <h2> with a class of of dishgrid--title and the text will be " Top Dishes"
+
+THEN AFTER: The <h2> lets create a div wraper, inside the wrapper we will have our individual items  dish grid items. so we will hae a div with a class of dish grid item, then inside that we will have our image, with title, price and a star.
+
+So lets create the image first of all, we create div with a class of "dishGrid--item--img", and inside that we have the image called food1, then refresh page. yes we have our food image. And after that lets have the "title". we will actually keep it separate.
+
+So we will have a grid and after that we need to separate the grid into two parts, "one will be image part"  another one will be  "information part". So lets create this a div with a class of "dishGrid--item--info". Then inside this div we will have our title <h3> with a class of "dishgrid--item--title" the tiltle will be "vegan salads " below this we create another h3 for price
+
+Then next we need price, we create another <h3> with a class of "dishGrid--item--price". Then below the <h3> we create " a star" to do that we start with a <div> with a class of "dishgrid--items--starts". Then is die this div we will have our start image. Then refresh the page there we go.
+SO THATS IT FOR THE INDIVIDUAL ITEMS
+
+SO NOW WE CAN DUPLICATE THIS 2 TIMES TO MAKE 3 IMAGES AND UPADTED THE CONTENT THE "dishGrid--item" line 166. AND IF YOU WANT YOU CAN CHANGE THE CONTENT.
+
+So that all we need to style it: AS I SAID THIS WILL BE A COMPONENT THAT WILL BE USED IN MULTIPLE PLACE. AND WE WILL HAVE TO STYLE IT IN OUR  "component.css"
+
+LETS GO OVER TO OUR component.css AND LETS STYLE IT: 
+We start with "dishgrid--title"  see line 187-191
+
+NEXT IS : "dishGrid--wrapper" see line 194-197 ( grid-template will be coloumns, it will be repeat...how? we will make it aouto fit and minmax will be 140px for the minimum and maximum will be 1 fraction(1fr) ) SO IF I DO THAT, IT WILL BE REALLY RESPONSIVE, YOU CAN SEE THAT ON LARGE DEVICE IS LOOKING GOOD, WHENEVER I GO TO SMALL DEVICE IS LOOKING GOOD TOO. (SO THATS WHAT AOUTO FIT WILL DO)
+
+NEXT IS OUR INDIVIDULA ITEMS: see line 200 -206 eg(dishGrid--item)- individual item will have a display flex
+
+NEXT IS OUR IMAGE: see line 209-215 eg (dishGrid--item--img ) will have flex of 4 and also the infomation one 
+
+NEXT IS OUR ACTUAL IMAGE NOW: see line 219-221 eg  "dishGrid--item--img--img" ( SO THE (flex: 4 image) NEED TO BE OF THE --object-fit cover. So when ever we have this object fit cover we need to make a boarder -radius.
+
+NEXT LETS IS OUR INDIVIDUAL ITEMS MEANS INDIVIDUAL TITLES: see line 255-230 eg (.dishGrid--item--title)
+
+NEXT LEST STYLE THE PRICE: see line  eg (dishGrid--item--price) 233- 237
+
+NEXT FOR OUR STARS WHAT I NEED: see line 240 -242 eg (dishGrid--item--stars) 
+
+
+RIGHT NOW WE ARE DONE WITH SMALL DEVICE WE NEED TO MAKE RESPONSIVE AND ADD STYLE FOR LARGE DEVICE
+
+SO FOR THAT LETS GET MEDIA QURIES: We say @media min-width 768px --so here in this range we will make the changes, so first of all lets grab the title eg (dishgrid--title) see line 245-247
+
+NEXT LETS GO TO WRAPPER: eg (dishGrid--wrapper) " grid-template-columns" we will make it change "auto-fit will be same, min max will be 350 and 1fr. So minimum 350px is required: So when ever I go to smaller devices and there is no space the food card will go to the next row line 249-251
+
+NEXT LETS GO TO "dishGrid--item": Will be the flex-direction-row (will later change it) line 253-257
+
+THEN NEXT LETS GO TO ".dishGrid--item--tilte" : line 263-265
+FINALLY LETS ADD THE SCROLL ANIMATIMATION - (using data-aos = "fade-up") line 160 section #dishGrid element
+
+NOW WE ARE DONE WITH THE TOP DISHES SECTION AND IT IS FULL RESPONSIVE
+------------------------------------------------------------------------------------------------------
+
+						DISCOUNT SECTION
+						-----------------
+SO AFTER THE (end of top dishes) LETS CREATE A SECTION: with an id of "discount", inside that we create a div conatiner, inside that we create a div with a a clas of discount--wrapper --- and inside the wrapper we will have our image. If you look at our finished discount section you can see that we have two images and information.
+
+So lets have those images first of all: for that lets create a div with a class of discount images and inside it we will have our images. So lets have our first image and for that we will have a div with a class of discount image1 and inside that div we will have our first image food5.png then we can duplicate that 2 more types so we will have three images here and update the text. After that save and run the app to see the changes. You can see we have 3 images displayed on the page see line 215-231 index
+
+THEN AFTER THAT WE WILL INFORMATION ON THE SIDE line 229 -236 eg: So after the whole image discount div 218-228 lets have another div with a class of discount--info. Then inside this we div we will have an <h3> ( text 20% Off) with a class of discount text. Below that another <h3> with a class of discount title (demo dish for discount). Then next we will have "PRICE DISCOUNTED" so we add another <h3> with a class of discount--price and inside <h3> we will have 2 prices, the first one will be "THE OLD PRICE"  and "THE SECOND PRICE" will be the NEW ONE. So we use a <span> tag with a class of discount--oldprice of($35) THEN another <span> for NEW PRICE. Then save it and check. You can see that our price info is displayed below the last food image.
+
+AFTER THAT LETS HAVE THE STAR: line 236-239 After the <h3> with a div class of discount--stars, then inside that div will have image of stars. We have the star image, after that we will have a button. So after the div class dicount--stars, we create a button. lets create an <a>tag and say href we will link this with the BOOKING PAGE so let go to the booking.html and we add a class of "btn" "primary-btn" and the text will be BOOK TABLE. Now save and check - Yes we can see the button BOOK TABLE BUTTON (WHICH IS ALREADY STYLED FROM THE BEGINING)
+
+NOW LETS STYLE THIS: SO WE DO THAT IN OUR (home.css) after this : @media only screen and (max-width: 300px) line 204
+
+FIRST LETS PUT A COMMENT:  "discount styles"
+
+First lets start with "discount--wrapper" eg .discount--wrapper { : we say display will be flex, so for the background you can see we have a kind of illustration(African lady) so we will use that as a background image. So first of all we will have a background color like "lightgreen" beside that we will use our image url and the url will be in the images folder we have the discount-illustration. Then save and refresh the page. You can see that we have the "discount-illustration at the bottom" but it is not in position we have to position it.
+
+To do that after the url, we say no-repeat, and the position will be bottom right and the size of "discount-illustration" it will be 100px. Then refresh the page and you can see that is 100px and is on the right.
+
+THEN NEXT LETS GO TO OUR IMAGES: THEY LOOK TOO BIG. So we will say discount images eg ( .discount--images { ). First of all I will do a display flex ( display flex means I want to show images side by side)
+
+THEN NEXT YOU CAN SEE THAT THERE ARE ONLY TWO IMAGES FOR ALL THE SMALL DEVICES, THERE IS NO 3RD IMAGE, SO WHENEVER WE GO TO LARGE DEVICE THE 3RD IMAGE WILL APPEAR. SO FOR ALL THE SMALL DEVICES THERE WILL BE TWO IMAGES.
+
+SO TO ACHIEVE THAT: For the small devices we need to hide the 3rd image. We will use media query to achieve that-- so we say media query ( less than 1000px - when ever we are inside of this range, I want to hide the 3rd image. so for that we say "discount--img3 will be hidden. so for that I will use display none. SO WHEN YOU REFRESH THE PAGE YOU CAN SEE THAT THE 3RD IMG IS HIDDEN.
+
+AND SOMETHING ELSE WE CAN ADD- WE CAN ACTUALLY CHANGE THE GAP BETWEEN THE IMAGES AND THE TEXT CONTNET. SO TO DO THAT WE NEED TO GO TO THE DISCOUNT WRAPPER: eg (  .discount--wrapper { ) and say gap will be 2rem. NOW YOU CAN SEE THAT THERE IS A LITTLE MORE GAP
+SO THATS IT FOR MEDIA QUERRY.
+
+ACTUALLY NOW LETS GO BACK TO OUR REGULAR STYLE AND FIX THE IMAGES: So I need to change flex on the images. To do that lets select individual images. So we select discount--img1 eg ( .discount--img1 {  ) so this one will have a flex of 2 AND THE SECOND ONE WILL HAVE A FLEX OF 3.--- SO IF I DO THAT YOU CAN SEE THAT THE SECOND ONE IS HAVING MORE SPACE THAN THE FIRST IMAGE. BECAUSE WE FLEX 3 ON THE 2ND IMG AND FLEX 2 ON THE 1ST IMG
+
+AFTER THAT LETS GO TO OUR INDIVIDUAL IMAGE WE SAY: discount--images img eg ( .discount--images img { ) and we say ( object fit cover) when ever we have this object fit cover -- it will cover the the remaing blank space of the div, so the image it will fill the div entire area in other words. (NOTE THIS IS TO DO WITH THE FIRST IMAGE BECAUSE IT WAS NOT COVERING THE ENTIRE DIV) for example before this image was something like " object-fit: conatin" and we dont want that.
+
+AFTER THAT LETS GO TO OUR TEXT: We say discount--text eg ( .discount--text { ) so the text lets say font size will be 1.4rem
+
+AFTER THAT W NEED TO STYLE THE TITLE: we say discount--title eg (.discount--title { )
+
+AFTER THAT LETS GO TO OUR PRICE: we say discount--price  eg ( .discount--price {  ) -- lets also say "display flex because inside that we have 2 kinds of price, one is the olde price and the second one is the new price ) and between them I want some "gap"
+
+NOW I NEED TO STYLE THE OLD PRICE A LITLE DIFFERENT: So I want a line stricking through the old price. For that I need to go to the "old price. we say discount old price eg  ( .discount--oldPrice {  )
+
+THEN FOR THE NEW PRICE I WANNA CHANGE COLOR: We say discount--newPrice eg (.discount--newPrice { ) and the color is changed.
+
+THEN NEXT FOR THE STAR WE NEED TO CHANGE THE WIDTH & HEIGHT OF IT:We say discount stars eg ( .discount--stars { ) we say width max content and height 15px -- if we do this we see original size of the image.
+WE ARE NOW FOR SMALL DEVICE NOW WE NEED TO STYLE FOR LARGE DEVICE
+
+
+NOW LETS CREATE OUR MEDIA QUERY FOR THE LARGE DEVICE: LETS DO THAT JUST ABOVE SMALL DEVICE MEDIA QUERY
+
+We say media only screen min-width 768px eg (@media only screen and (min-width: 768px) { ) and lets start with "discount--wrapper first of all and say : flex-direction: row; THIS WILL MAKE THE IMAGES AND CONTENT SIDE BY SIDE THAT IS IN THE SAME ROW " background-size: 150px; this is for the background image with a lady with big hair illustartion" so we are changing it to 150px from 100px.
+And also "  margin: 0 auto; to make it really in the center"
+
+ANOTHER THING, RIGHT NOW WE CAN ONLY SEE ONE IMAGE: We cant see our 1st and 2nd images, for that we need to keep this 3rd image, we need to give if "flex 2 or 3" then it will be good.
+
+BEFORE WE DO THAT LETS GO TO OUR DISCOUNT IMAGES : eg (   .discount--images {  ) and flex will be 5,   margin-bottom: 0; will be 0 because we dont have anything at the bottom of the image, so we dont need any kind of margin. and the gap will be 2 rem between images.
+
+NEXT LETS GO BACK TO OUR INDIVIDUAL IMAGES: We need to give flex here eg so lets go to our individual images 1,2,3  and these will need  FLEX eg .discount--img1,
+    .discount--img2,
+    .discount--img3 { and here the the flex will "flex:1" because I wanna have the same width for those 3 images. NOW YOU CAN see we have the 3 images here and they have the same kind of width.
+
+THEN AFTER THAT WE NEED TO CHANGE THE STYLE FOR THE TEXT CONTENT: THEN LETS GO TO OUR INFO PART -- Which is the discount--info eg ( .discount--info { ) and we have to give it "flex" NOTE : We have two parts if you notice -- we have discount images and the other half will be the discount info, thats why we need to give discount--info flex 3
+
+AND AGAIN UNDER : discount--images we are saying that the images will have the "flex:5" and the other half (the info will have flex 3). AND IF YOU NOTICE: The image part is bigger than the info part because it has the flex 5
+
+THEN NEXT PART LETS GO TO OUR TEXT: eg discount--text eg (  .discount--text { ) For the discount text I wanna change the font a little bit
+
+THEN AFTER THAT WE EED TO GO TO THE discount--title eg (  .discount--title {  ) we change the font size
+
+THEN NEXT LETS IS OUR PEICE: discount--price we change the font size.
+
+THEN MEXT IS OUR STAR: So we need to make it a little bit bigger so discount--star eg (   .discount--stars { ) 
+
+OUR SECTION IS NOW DONE AND RESPONSIVE, NOW LETS ADD OUR ANIMATION HERE WHEN EVER WE ARE 
+So in our section we need to add the "attribute data aos" which is from the (aos libary) that we are using for the animation.
+SO WHENEVER WE SCROLL IT WILL FADE UP.
+
+NOW WE ARE DONE WITH OUR DISCOUNT PART
+---------------------------------------------------------------------------------------------------------
+ NEXT SECTION
+
+				EVENTS MEDIA SECTION
+				----------------------
+We will create this after our discount section
+
+Lets start by creating a section with an ID of events media, inside this section we will have a div with a  class of container and inside that we will have another div with a class of events media wrapper and inside that we will have our information.
+
+From the finished site you can see that this is a straight forward section, we will have to parts. That is 2 images. One will be this kind of a video another one will be just an image.
+
+SO TO DO THAT INSIDE OUR WRAPPER WE SAY: div with a class of events media and say the 1st one eg (  <div class="eventMedia--1"> ) and inside that we will have our image.
+AFTER THAT : We will have our <a> tag meaning for the "play button video because our 1st image is a video"). SO lets create an <a> tag eg  (  <a href=""></a>  ) and you can link this button whenever you want if you have any kind of media you can link that with the button but we will keep "an empty link for now"
+THEN INSIDE THE "href" lets add a class events Media 1 play button eg ( <a href="" class="eventMedia--1--playButton"></a> ) then inside this <a> tag we will have our image. Then run the app and check
+
+THEN WE ALSO NEED A 2ND IMAGE: -- so after the first event media--1 div lets put our 2nd one.So we say div events media--2 eg ( <div class="eventsMedia--2"></div> ) and inside this we will have our second image eg (src="./images/eventsMedia2.png" ) run code and check--- WE NOW HAVE THE 2nd image
+
+SO THATS IT FOR OUR MEDIA SECTION THEN LETS GO TO OUR "home.css" and apply the styling. We start with a comment frst. 
+
+Then we start with the wrapper first of all eg ( .eventsMedia--wrapper {  ) the display will be flex. WHEN EVER I HAVE THE FLEX YOU CAN SEE BOTH IMAGES ARE SIDE BY SIDE THAT IS IN THE SAME ROW.
+
+AFTER THAT LETS GO TO THE FIRST MEDIA EVENT: eg .eventsMedia--1 { and we say position will be relative
+
+AFTER THAT LETS GO TO OUR BUTTON : And keep position aboslute -- eg ( .eventsMedia--1--playButton { )
+you can see that even if we have left 50% and top 50% the button is till not in the center.
+THEN WHAT WE NEED TO DO IS TO CHANGE: The origin of "transform trnaslate x and y" so lets change that ( transform: translate say x and y we do both in the same line) for x we can say -50% for the y it will be -50% as well--- AND NOW YOU CAN SEE THAT IS CENTERED. Then we need to change the (max:width) so now you can see that the play button size is now small is looking perfect.
+AND THATS ALL FOR SMALL DEVICES
+
+AFTER THAT LES GO TO OUR MEDIA QUERY MEANS WE NEED TO MAKE IT RESPONSIVE FOR THE LARGE DEVICE: So we say media only screen and min-width will be 768px eg ( @media only screen and (min-width: 768px) { ) and here we need to change the gap so we say events media wrapper. NOW YOU CAN SEE THAT THE GAP IS BIGGER
+
+AND ALSO FOR THE PLAY BUTTON: eg (  .eventsMedia--1--playButton {  ) and add max width of 100px.
+
+AND THATS IT FOR THE EVENTS MEDIA SECTION : ONE LAST THING WE NEED TO ADD THE ANIMATION.
+SO WHENEVER WE SCROLL I NEED TO HAVE THE ANIMATION--- SO WE WILL HAVE THE FADE UP ANIMATION: So in our srction id events media we add " the data aos fade up"
+
+AND THATS EVERYTHING DONE NOW
+--------------------------------------------------------------------------------------------------------
+
+					NEXT EVEENTS INFO SECTION	
+					--------------------------
+NEXT LETS CREAT OUR EVENT INFORATION SECTION, AFTER THE EVENTS MEDIA SECTION
+
+Fist of all we create a section with an id of events info and inside that we will have a div with aclss of conatiner, then inside that we will have a wrapper with a class of events info wrapper and inside that we will have our two parts on the left we will have images with text and on the right hand side we will have text and a button.
+So for that, inside the wrapper we create a div with a class of events Info left. and inside of this left side div, we will have our item so div with a class of events Info item. 
+
+IF YOU GO TO THE FINISHED SITE THE INDIVIDUAL ITEMS WE ARE REFERING TO THE IMAGES AND THEIR TEXT INFO: So we will have these 2 individual items. AND lets create those inside the  "div eventInfo--item" we will have our image of div with a calss of eventsInfo--item--img eg (  <div class="eventInfo--item--img"></div> ) and inside the img we will have our actual image. THEN run the code and you can see the image
+
+THEN ALSO AFTER THE div ( <div class="eventsInfo--item--img"> ) we will have another div with a class of eventsInfo--item--info eg ( eventsInfo--item--info">) this will be the individual info that is the title and the text on each image. So we will have an image and the image info
+
+THEN : inside the (<div class="eventsInfo--item--info"> ) lets say the <h2> will have events info item title class and the title will be "cooparate events".
+
+AND AFTER THAT : We will have our parahraph and this paragraph will have a class of events info item text. Then copy and paste the text.
+
+SO AFTER THAT LETS DUPLICATE THE WHOLE ITEM (div class eventsInfo--item) and after that we need to change the image and the content.the image, title and the paragraph text. 
+NOW WE ARE DONE WITH THE ITEM.
+
+NOW WE NEED TO CREATE THE RIGHT SIDE AND ADD THE CONTENT AND THE BUTTON. So at the end of the left div lets create a div with a class of eventsInfo--right , then inside that create an <h2> with a title of "Book for events" and below that add a paragraph. Then after the paragraph we need to have a "button"
+
+SO LETS CREAT:An <a>tag and we need to add/link it to our conatct page, and also there will be class "btn and primarty btn" and the text for the button will  "conatct now"
+
+SO THATS IT FOR OUR EVENTS INFO SECTION.
+
+NOW IS TIME TO STYLE OUR IT, SO OVER TO (home.css)
+
+ LETS START WITH: The eventsInfo ID eg ( #eventsInfo { )
+
+THEN AFTER THAT LETS GO TO OUR EVENT WRAPPER: eg eventsInfo--wrapper eg ( .eventsInfo--wrapper { ) we say "display flex, then flex- direction column" NOTE NOTHING CHANGES AT THE MOMEMNT NOTHING CHANGES -- WE WILL ACTUALLY NEED THAT IN FEATURE.
+
+NEXT WE GO TO INDIVIDUAL ITEMS: So eventsInfo--item eg ( .eventInfo--item { ) and here in the item display will be flex,gap will be 2rem,  margin-bottom: 1.5rem;(margin bottom create the space between the top and below image , so they are not touching each other.
+
+NEXT WE NEED TO STYLE THE ITEM IMAGE: eg ( .eventsInfo--item--img { ) will say border radius 12px, we have the flex 3 for the image, you see that wehen we give flex 3(NOTE ARE OUR IMAGES ARE GONE) we dont have flex for the other parts of the information eg(text infomation). So we need to have the FLEX for the other parts
+
+SO LETS HAVE THE FLEX FOR THE INFO WHICH IS THE OTHER PARTS: So we say  eventsInfo--item--info eg ( .eventsInfo--item--info { ) and we say flex 4, now you can see that our images are now back
+
+NOW IF YOU NOTICE THAT THE IMAGES THE IMAGES HAVING FLEX :3 , AND THE INFORMATION WHICH IS HAVING FLEX: 4 IS HAVING A LITTLE BIT MORE SPACE.
+
+SO AFTER THAT LETS GO TO OUR ACTUAL IMAGE: "NOTE :PUT THIS ABOVE THE FLEX:3 item text" eg eventsInfo item image lets go to our actaul image eg ( .eventsInfo--item--img img { ) so object fit will be cover, whenever Im having the cover I can see that all the empty spaces is now filled up with the image.
+
+THEN NEXT LETS GO TO OUR TITLE:  we need to change the font and color eg .eventsInfo--item--title {
+
+THEN NEXT WE GO TO THE PARA TEXT: We need to change the para text that we have inside our itme eg ( .eventsInfo--item--text { ) font size 1.4rem
+
+THEN NEXT WE NEED TO STYLE OUR RIGHT SIDE: Which is the information that we have and the button.
+
+so we say eg .eventsInfo--right { ) this will have margin-top 2rem
+
+THEN NEXT WE GO TO OUR ENEVTS TITLE: eg .eventsInfo--title { )
+
+THEN NEXT LETS GO TO OUR TEXT: eg .eventsInfo--text {
+
+THEN AFTER THAT WE HAVE TO MAKE IT RESPONSIVE FOR LARGE DEVICE: SO FOR THAT WE CREATE MEDIA QUERIES
+
+We say media only screen and min-width 768px eg @media only screen and (min-width: 768px) { ) then we start with :  .eventsInfo--wrapper { and will have flex direction: row. When ever we have "l have flex direction: row|" meand the left item and the right item will be side by side , in the same row
+
+THEN NEXT LETS GO TO OUR LEFT AND RIGHT: And lets say the flex will be 1 for both sides eg .eventsInfo--left, .eventsInfo--right {
+
+THEN NEXT LETS GO TO OUR EVENTS INFO ITEM : eg   .eventsInfo--item { and the padding will be 2rem
+
+THEN AFTER THAT IS OUR ITEM TITLE: eg .eventsInfo--item--title { we need to change the font size
+
+THEN AFTER THAT IS OUR ITEM TEXT: eg  .eventsInfo--item--text {) I need to increase the text
+
+THEN AFTER THAT LETS GO TO OUR TITLE AND PARA TEXT ON THE LEFT: eg  .eventsInfo--title {
+
+THEN NEXT WE NEDD TO CHANGE THE FONT FOR THE PARA TEXT: eg  .eventsInfo--text { ) we say max-width: 500px now if I go to large devive you will notice the max width of the para text is 500px when we add the font size. So in this point "1327" is not increaning its width (video358) THATS LOOKING NICE
+
+NOW WE DO THE LAST THING, WHICH IS ADDINGBTHE ANIMATION: "data aos will be fade up" AND NOW WE ARE DONE WITH THIS SECTION AND IS FULLY RESPONSIVE.
+
+--------------------------------------------------------------------------------------------------------
+
+		NEXT SECTION IS
+					THE WHY SECTION
+					-----------------
+
+First of all lets create a "comment for the "WHY SECTION" below the events Info section"
+
+We start by creating a section with an id of whyUs, inside of that we will have a div with a class of container, inside the div we will have another div with a class of whyUs--wrapper. Then inside the wrapper we will have a left div with a class of whyus--left.
+
+THEN NEXT: In the left side we will have our title we create <h2> with a class "whyUs--title" THE TITLE WILL BE : (Why Choose Our Food)
+
+After that we will create a paragraph with a class of (whyUs--text) THEN RUN THE CODE - NOW YOU CAN SEE THE TITLE AND THE PARAGRAPH
+
+THEN NEXT: After that in the right side we will have the 4 items icons. So lets create those, after the closing left div tag. so lets create a div with a class of whyUs--right. So in the right side we will have all of our items. first of all lets create a |"wrapper" for those 4 icons, so it will be a div with a class of whyUs--item--wrapper. and inside that we will have our four individual items with a div class "whyUs--item" Then inside this item we will have an "item" with a div class of "whyUs--item--icon. Then inside that we will have our icon so I will say img source and get our image "whyus-icon1.svg"
+
+THEN NEXT: After the individual icon we will have some text reatled to the icon, so after the div class whyUs--item--icon we will create a <p> with a clas of "whyUs--item--text --text will be " quality food" 
+THEN RUN THE CODE TO TEST IT, NOW YOU CAN SEE THAT WE HAVE THE ICON AND THE TEXT
+
+THEN LETS DUPLICATE THE FIRST ICON 3 TIME AND UPADTE SVG ICONS AND TEXT. NOW OUR HTML IS DONE, NOW LETS GO TO APPLY THE STYLE.
+
+HEAD OVER TO "home.css"
+
+FIRST WE WILL START: With "whyUs--wrapper" eg .whyUs--wrapper { and with this style you see that we have a column and whenever we. what we want for mobile device is inner column instead of a row. Thats why we use  flex-direction: column; because we want everthing to be in a column.
+
+THEN WHEN EVER WE GO TO LARGE DEVICE: We can change that and make it row instead of column.
+
+THEN AFTER THAT LETS GO TO OUR LEFT SIDE: eg .whyUs--left { and here in the left side  text alignmet will be in the center.
+
+AND AFTER THAT LETS GO TO THE WHYUS TITLE: eg .whyUs--title { --Now our title looking good
+
+THEN NEXT LETS GO TO OUR TEXT: eg .whyUs--text {
+
+THEN NEXT LETS GO TO ALL OUR ITEMS: For that first of all lets go to the warpper -- eg .whyUs--items--wrapper { so the item wrapper I wanna display as a grid, and  grid-template-columns: should be 1fr 1fr; this means there will be 2 columns, we give it gap 1rem, so the will be one gap in the row and one gap in the column.
+
+THEN AFTER THAT WE CAN STYLE OUR INDIVIDUAL ITEM: eg .whyUs--item { for the background color will have lighreen1
+
+THEN AFTER THAT WE NEED TO STYLE THE ICONS: eg .whyUS--item--icon { THAT LOOKS FINE
+
+THEN AFTER THAT WE NEED TO STYLE THE TEXT: eg .whyUs--item--text {  THAT LOOKS FINE
+
+NOW WE NEED TO MAKE IT RESPONSIVE BECAUSE RIGHT NOW, IS LOOKING GOOD FOR THE SMALL DEVICE, WE NEED TO MAKE IT GOOD FOR THE LARGE DEVICE.
+
+SO LETS GET GET MEDIA FIRST OF ALL : We say media only screen and (min-width: 786). Then first we grab the "whyUs--wrapper eg as we said first of all I need to change the "flex-dirextion to row". NOW the "left and the right is in the same row". THEN "margin will be 0 auto" SO THAT EVERTHING REMAINS IN THE CENTER. When we make the screen larger you can see that the wrapper takes up to 900 width of the screen
+
+AFTER THAT WE GO TO THE LEFT SIDE: eg   .whyUs--left { we say flex will be 4   THAT LOOKS FINE
+
+AND THEN THE RIGHT SIDE: eg   .whyUs--right { we say flex will be 3    THAT LOOKS FINE
+
+THEN AFTER THAT IS THE WHYUS TITLE: eg  .whyUs--title {    THAT LOOKS FINE
+        font-size: 3.6rem;
+
+THEN AFTER THAT IS THE TEXT: eg  .whyUs--text {     THAT LOOKS FINE
+
+THEN NEXT WE NEED TO STYLE THE ITEMS WE HAVE IN THE RIGHT HAND SIDE: eg  .whyUs--items--wrapper {  THAT LOOKS FINE
+
+THEN AFTER THAT IS THE INDIVIDUAL ITEMS: eg  .whyUs--item {
+
+THEN AFTER THAT IS CHANGE THE ICON WIDTH: eg  .whyUs--item--icon {
+
+THEN AFTER THAT LETS GO TO OUR TEXT: eg  .whyUs--item--text {
+
+WHAT WE CAN DO, WE CAN GO BACK TO OUR : .whyUs--item {
+    background: var(--lightGreen-1);
+    padding: 2rem;
+    border-radius: 12px;
+} AND  ADD TEXT ALIGNMENT CENTER eg " text-lignment: center;--- AND WE CAN SEE ALL THE TEXT FOR THE ICONS IS ALIGHNED IN THE CENTER
+
+SO THAT DONE NOW EVERYTHING LOOKING PERFECT, AS WE WANT. THEN FINALLY WE NEED TO ADD THE "aos scroll animantion"
+
+SO YOU CAN SEE THAT THERE ARE 2 ANIMATION, ONE FOR THE RIGHT SIDE AND 2ND ONE FOR THE LEFT SIDE.
+
+SO FOR THAT WHAT WE NEED TO DO IS TO APPLY THE "aos animation" ON THE LEFT SIDE eg (  <div class="whyUs--left"> ) so we can add the data-aos attribute and after the class left and we say "fade-right"
+
+THEN WE DO THE SAME THING IN THE RIGHT SIDE.
+THATS WAHT WE WANT AND EVERTHING IS WORKING PERFECT, WE ARE DONE WITH THE WHY SECTION
+---------------------------------------------------------------------------------------------------------
+
+NEXT SECTION IS "OUR CUSTOMERS STORY"
+
+					TESTIMONIAL SECTION
+					---------------------
+SO after the why us section lets create a comment: Then we start with creating section with an ID of testimonial, inside that we will have a div with a class of conatiner, then inside that container we will have "our testimonial wrapper first of all" 
+
+Then inside the wrapper first thing we will create a "TITLE" an <h2> with a class of testimonial--title
+
+THEN NEXT WE WILL HAVE THE 4 ITEMS: FOR THAT We can wrap all the items in div -- so lets create a div with a class of testimonial wrapper eg   <div class="testimonial--item--wrapper">
+
+THEN NETX: Inside of this wrapper we will have all the items, lets create the first item first of all , we day div testimonial--item eg   <div class="testimonial--item"></div> then inside that we will have an image
+
+So we create a div with a class of testimonial--item--image eg  <div class="testimonial--item--img"></div>
+and inside that we will have our image. Then run the code --- and we can see the image. After that we will have a paragraph text. 
+
+So  after this whole div eg  <div class="testimonial--item--img"> lets have the information. So first of all lets have a div with a class of testimonial--item--info, eg   <div class="testimonial--item--info"></div> this will be THE PART OF INFO. And inside of this div we will have an <h3> with a class of testimonial--item--name and we will have the name inside <h3>
+
+THEN AFTER THAT :after the <h3> We will have a star, the div with a class of testimonial--item--stars eg   <div class="testimonial--item--stars"></div> then inside that we will have a star image.
+
+THEN RUN THE CODE AND I SHOULD SEE THE STARS
+ THEN NEXT WE WILL HAVE THE PARAGRAPH: We create a <p> with a class of testimonial--item--text tag after the closing div of the image. Then inside this <p> tag we will have the testimonial text
+
+NEXT WHAT: We can duplicate the div with a class of testimonial--item eg ( <div class="testimonial--item"> ) TRICK TO DUPLICATE IS TO : (select the text, the hold shift +alt and press down arrow )
+
+NOW WE ARE FINISHED WITH THE HTML PART AND WE NEED TO STYLE IT, SO OVER TO home.css AND START STYLING OUR SECTION
+
+						STYLING
+					--------------------
+First of all we will start with testimonial wrapper eg ( .testimonial--wrapper {  ) and we say : max-width: 400px;  margin: 0 auto; -- THIS IS USEFUL WHEN ON TABLET DEVICES AS YOU CAN SEE THAT WE DONT WANNA HAVE A FULL WIDTH FOR THE SECTION (eg image section) WE WANT ONLY THE 400px
+
+THEN NEXT LETS GO TO OUR TITLE: eg .testimonial--title {  --- LOOKING GOOD we can add  text-transform: capitalize; -- this capitalises text
+
+NEXT WE GO TO THE ITEM--WRAPPER: eg .testimonial--items--wrapper {
+    display: grid; // SO HERE WE WANT TO HAVE A GRID LAYOUT, and how many columns we want? we want 2 coloumns so we can actully create that with  grid-template-columns: 1fr 1fr;)	NOW LOOKING GOOD
+
+THEN NEXT IS THE INDIVIDUAL ITEM: eg .testimonial--item { and the padding will be the 1rem. So you can see that the items(images) are having a display flex because you can see the left side and the right side in the same row
+
+ACTUALLY YOU CAN SEE THAT IN SMALL DEVICE:There is no much space for the 2 columns, so instead of having (1fr 1fr for the 2 columns we can keep 1) 
+
+SO WHEN WE DO CHANGES: You can see that is 1 column for each row and NOW LOOKING GOOD
+
+NEXT IS THE TESTIMONIAL INFO: eg ( .testimonial--item--info {  ) flex will be 4 and for the IMG flex will be 2. NOW YOU CAN SEE THAT THE  FLEX IS 2 FOR THE IMG AND 4 FOR THE INFORMATION
+
+WE CAN NOT SEE MUCH DIFFERNECE ON THE STYLE APPLIED TO : eg ( .testimonial--item--img {  ) for example the border radius is not happening, E COULD DO ONE THING: We can make object-fit :cover to the actual image.
+
+SO TO DO THAT LETS GRAB THE IMAGE FIRST : eg .testimonial--item--img img { You can see that the object fit is covered and now is you can see that the height and width is 100% and you can see the border radius is 12px.  NOW LOOKING GOOD
+
+THEN NEXT IS THE INFORMATION FOR THE NAME: eg ( .testimonial--item--name { ) NOW LOOKING GOOD
+
+THEN NEXT IS STARS: eg .testimonial--item--stars { NOW LOOKING GOOD
+
+THEN NEXT IS THE TEXT : .testimonial--item--text {  NOW LOOKING GOOD
+
+NOW WE NEED TO MAKE IT RESPONSIVE FOR THE LARGE DEVICE
+
+WE SAY : @media only screen and (min-width:768px) this means any width which is greater than 768px that will be range. so then  { we start grabbing testimonial--wrapper
+
+THEN NEXT IS THE TESTIMONIAL TITLE: eg   .testimonial--title {  NOW LOOKING GOOD
+
+THEN NEXT IS THE ITEMS WRAPPER: eg (   .testimonial--item--wrapper {  ) SO WE WANT TO CHANGE THE GRID HERE. RIGHT NOW WE ARE HAVING 1 COLUMN FOR EACH ROW.
+
+INTEAD WHAT I WANT TO DO IS SAY : 2 Columns per row so we use the ( grid-template-columns: 1fr 1fr; )
+
+THEN NEXT INDIVIDUAL ITEM: eg  .testimonial--item {
+
+THEN NEXT IS INDIVIDUAL ITEM NAME: eg   .testimonial--item--name {
+
+THEN NEXT IS STARS: eg   .testimonial--item--stars {
+
+THEN NEXT IS TEXT:  .testimonial--item--text {
+
+NOW SEE FOR THE EXTRA SMALL DEVICE IT IS NOT LOOKING GOOD, SO WE NEED TO ADD A LITTLE BIT MORE MEDIA QUERY HERE FOR THE EXTRA SMALL DEVICE
+
+We say eg @media only screen and (max-width: 300px) { in this range means extra small device, the testimonial--item instead of having flex-direction row I want to to have a "flex-direction:column: so in this case you can see that the "image is now at the top, the infomation is now at the botom" That what we want.
+
+THEN NEXT: We ned to change the flex of each of our part, because if you remeber we have 2 of our parteg the image part and the information part.ANd for that use case we need to have the "the flex:1".So lets grab the individual part 
+
+eg the fist one is :  .testimonial--item--img, and the next one is  .testimonial--item--info eg   .testimonial--item--img,
+    .testimonial--item--info{// AND FOR THOSE WE WANT TO HAVE A FLEX 1 or we can say flex:auto
+
+NOW YOU CAN SEE IT IS LOOKING GOOD IN THE EXTRA SMALL DEVICE, AND IN THE SMALL DEVICE, AND IN THE MEDIUM AND LARGE DEVICE.
+
+THEN FINALLY WE ADD THE SCROLL ANIMATION BESIDE OUR ID WE ADD THE DATA AOS ATTRIBUTE FOR THE AOS LIBRARY AND SAY FADE-UP. NOW WE ARE DONE
+
+------------------------------------------------------------------------------------------------------
+NEXT SECTION
+
+					NEWS LETTER SECTION
+				-------------------------
+AT THE END OF TESTIMONIAL SECTION , WE CREATE A COMMENT FOR OUR NEWSLETTER SECTION AND INSIDE THAT WE WRITE OUR HTML
+
+We start by creating a section with an idea of newsletter, inside that we will have a div with a class of container, then inside we will have our wrapper a div with a class of newsLetter--wrapper.
+
+THEN NEXT: Inside our div wrapper we will have our INFO, you see the layout. We can actually divide it into 2 parts left and the right. 
+
+SO TO DO THAT: We create a div with a class of newsletter--info we will start with he info. Then inside this we will have <h3> title of " Join Newsletter"
+
+THEN NEXT AFTER THAT : We will have a <p> with class of "newsletter--text". THEN LETS RUN THE CODE, YES WE CAN SEE OUR TEXT
+
+THEN NEXT: Now after this whole div, meaning after this ( <div class="newsletter--info"> ) lets have a form. we say div with a class of newsletter--form. Then inside this div we create a form
+
+when creating a form tag just type "form " and then enter and you will get the form bolier plate eg (  <form action=""></form> ) NOTE: right now we don't need any kind of "action" because we are not going to make it functional, but will do that later.
+
+Then inside our form we will have a <label> and we say the label is for "email" Then inside the label we will have our input and type will be "email" and placeholder will be (your email address)
+
+AFTER THIS WE WILL HAVE OUR BUTTON: Then the label we will have a button, we create a <button> just below the label. A button with a type of submit. Button text will be submit.
+Then if you run the code, I can see your email adress bar and a join button.
+
+THEN NEXT WE NEED TO APPLY THE STYLE : SO OVER TO OUR "home.css"
+
+FIRST OF ALL WE CREATE A COMMENT (newsletter section styles)
+
+LETS START WITH NEWSLETTER WRAPPER : In a newsletter wrapper I want to first display as FLEX, and for now since we are on small device the flex-direction will column AND LATER WHEN WE ON MEDIUM, LARGE DEVICE WE WILL MAKE IT ROW. Then the gap should be 2rem between the information and the form.
+
+THEN NEXT IS THE TITLE : eg .newsletter--title {
+
+THEN NEXT LETS GO TO OUR FORM : We say newsletter--form and inside that we have the actual form eg ( .newsletter--form form { ) WHY ARE WE HAVING POSITION RELATIVE IN THE FORM? BECAUSE I WANT TO HAVE THE GREEN BUTTON IN FRONT OF THE FORM (FIELD) "email" 
+
+THAT'S WHY THE BUTTON WILL BE POSIONED ABSOLUTE AND THE WHOLE FORM WILL BE POSITIONED RELATIVE, then lets continue and add the width
+
+THEN NEXT IS OUR LABEL: eg ( .newsletter--form label {  ) and here I will just say width will be 100% because inside of this label we have our field
+
+THEN NEXT IS NEWSLETTER FORM MEANS THE INPUT: eg ( .newsletter--form input { ) And we dont want the border here(eg this is usually the line around the element) so we say border:none and that line around the input box will be gone.
+
+THEN NEXT IS THE PLACEHOLDER : So we say newsletter--form and grab the input , to style the placeholder we can say, we can actually select the placeholder here  using placeholder sudo element "::placeholder" eg ( .newsletter--form input::placeholder {  ) we give it an rgb color of a greyish color
+
+THEN NEXT IS THE BUTTON:We say newsletter--form and inside of that form we have a button and also the type of this button is submit eg .newsletter--form button[type="submit"] { ) after the padding, I wanna position the button absolute and I wanna position it on the right side at the end of the input box, for that we say right will be 0 and top will be 0. And if I do all that I can see it is now positoned in the right side as we want.
+And it you can notice the height is 100% of the parent 
+
+NOW THATS IS IT NOW FOR THE SMALL DEVICES NOW WE NEED TO MAKE IT RESPONSIVE FOR THE LARGE DEVICE.
+
+SO FOR LARGE DEVICE LETS CREATE MEDIA QUERY: We say media eg ( @media only screen and (min-width: 768px) {
+So in the 768px we want to have newletter--wrapper and will have (flex-idrection:row)
+
+THEN I ALSO NEED TO CHANGE FLEX: For the information and the form eg .newsletter--form,
+    .newsletter--info {  both will have a flex of 1, so that means the left and the right side will have a 50% of width.
+
+THEN NEXT WE GO TO OUR TITLE: eg   .newsletter--title {
+
+THEN NEXT IS THE TEXT : max-width: 400px means when ever I have 400px for the text means the text will not go outside the 400px width
+
+THEN NEXT IS OUR FORM: eg  .newsletter--form {
+
+THEN NEXT WE TO OUR INPUT: eg  .newsletter--form input {
+
+THEN NEXT IS THE BUTTON : eg .newsletter--form button[type=submit] { for the submit button the font size will be 1.8rem
+
+THAT IT FOR OUR NEWSLETTER SECTION, AND IS LOOKING GOOD
+
+NOW WE NEED TO ADD THE ANIMATION : We will add the data aos attribute beside the id newsletter and the "fade-up" will be the value
+
+NOW WE HAVE EVERY SECTION FOR THE HOME PAGE
+
+THATS THE END. WE ARE DONE WITH THE HOME PAGE !
+---------------------------------------------------------------------------------------------------------
+
+NEXT SECTION IS THE MENU SECTION
+
+						MENU PAGE
+					---------------------
+NOW LETS GO TO THE NEXT PAGE WHICH IS THE MENU PAGE 	
+
+SO IN OUR MENU PAGE WHAT DO WE HAVE : We have the menu for the resturant. IF you notice in the menu page you can see the dishes that we have is the "dish grid that we have already designed" in our home page. So we can actually copy the code for this section.
+
+And also we need to create the first section you can see in our finished SITE. SO LETS START WITH THIS ONE
+
+FIST THING LETS OPEN OUR menu.html file : So right now in the menu . html we have. IN OUR MENU.HTML right now we have NAVE MENU AND ALSO THE FOOTER
+
+AFTER THE NAVE MENU: We will have our first content. We start by creating a comment ( page tittle ), and first of all we will start with the page tittle.
+
+FIRST WE CREATE: A section with an id of page title, then inside that we will have a  container, then inside we will have our <h2> with a class of page title text
+THEN RUN THE CODE: AND THERE WE HAVE OUR TITLE, THEN LETS STYLE THIS TITLE
+
+TO DO THAT WE GO TO OUR menu.css
+SO IN THE menu.css WE WILL HAVE THE CSS FOR OUR MENU PAGE, SO IN OUR "munu.html" lets link this page eg menu.css eg  (   <link rel="stylesheet" href="./menu.css">  ) So we have linked this "menu.css"  with "menu.html file"
+
+NOW IN OUR menu.css WE START BY CREATING A COMMENT eg "page title style"
+
+FIRST OF ALL WE START: With styling the page id title eg ( #page--title { )
+
+THEN NEXT IS PAGE TITLE TEXT: eg.page--title-text { NOTE THIS STYLE WILL BE FOR THE SMALL DEVICE
+
+BUT FOR THE LARGE DEVICE WE NEED TO MAKE THE PAGE TITLE BIGGER, LETS GET MEDIA QUERY FOR THAT
+
+WE SAY : eg @media only screen and (min-width : 768px){ ) then we wanna grab the ID page title eg  #page--title {
+
+THEN NEXT IS THE PAGE TITLE TEXT: eg   .page--title--text { 
+
+NOW WE ARE DONE WITH THE PAGE TITLE , NEXT LETS START WITH OUR FIRST SECTION 
+
+SO WE START CREATING OUR SPECIALS SECTION
+
+SO IN OUR  "menu.html" FILE AFTER THE END OF OUR PAGE TITLE SECTION LETS CREATE A COMMENT
+
+LETS START WITH : Creating a section with ID of our specials, inside that we willl have a div with a class of container, then inside that we will have our "TITLE" eg "Our Specials" with an <h3> 
+
+THEN NEXT LETS CREATE A WRAPPER FOR THE ITEMS, WEWILL HAVE MULTIPLE ITEMS
+
+So below <h3> we creat <div> with class of ourSpecials--wrapper, then inside that we will have 2 items.
+
+LETS CREATE THE FIRST ONE: eg  inside the wrapper we say div with a class of ourspecials--item, then inside that we will have our image to do that we say we create a iv with a class of ourspecials--item--img, then inside here we will have our "image" THEN RUN THE CODE AND YOU SEE THE FOOD IMAGE
+
+THEN NEXT PART IS OUR INFO: So after the image beside it we have information about the dish. so to do that we say after this div eg <div class="ourSpecials--item--img"> we create another div
+
+With a class of ourspecials--items--info, then inside this div we will have the title which is an <h3> with a class of ourSpecials--item--title and text title will be ( Sweet Potato Fries Bowl) then after that we will have the price for that.
+
+THEN NEXT WE HAVE PRICE:After the <h3> we create an <h4> with a class of ourSpecials--item--price. The price will be $12
+
+THEN NEXT WE HAVE STAR IMAGE:After the <h4> lets get a <div> with a class of ourSpecials--item--stars, then inisde that we will have a star image.
+NOW RUN THE CODE, I CAN SEE THE $12 AND THE STARS, SO NOW THATS OUR FIST ITEM, WHAT WE CAN DO IS DUPLICATE THAT FIRST ITEM eg this div eg <div class="ourSpecials--item">
+
+NOTE: THE TRICK TO DO THAT IS TO HIGHLIGHT THE PART YOU WANT TO DUPLICATE, THEN HOLD SHIFT+ALT THEN DOWN ARROW
+
+NOW WEHAVE OUR 2 ITEMS ON THE PAGE, SO THAT IT FOR OUR HTML THEN WE HEAD OVER TO OUR CSS AND STYLE THIS
+
+SO WE CREATE A COMMENT "our specials menu style"
+
+LETS FIRST GRAB ID OURSPECIALS: eg #ourSpecials {
+
+NEXT LETS GO TO OUR TITLE: eg .ourSpecials--title {  AND THIS ALSO FOR SMALL DEVICE
+
+THEN NEXT IS OUR WRAPPER: eg .ourSpecials--wrapper {  THIS wrapper will have a display of flex,  flex-direction: column; so we will have column in small device and in LARGE DEVICE WE WILL MAKE IT ROW
+
+THEN NEXT IS INDIVIDUAL ITEMS: eg .ourSpecials--item {  so all the item will have a flex of 1 because I want every item to equal amount of width, insdie the item we want to dsplay them as a flex. THEN IF WE RUN THE CODE YOU CAN SEE THAT NOW INSIDE OF THAT ITEM WE HAVE THE IMAGE AND THE CONTENT SIDE BY SIDE AND THOSE ARE DISPLAYED AS A FLEX
+
+THEN NEXT I WANT TO HAVE THE SAME WIDTH ON THE IMAGE AND ON THE CONTENT. I WANT TO HAVE EQUAL AMOUNT OF SPACE. AND TO ACHIEVE THAT I CAN MAKE THEM FLEX:1 SO LETS DO THAT
+
+So we say ourSpecials item img, and also ourSpecials item info - so the 2 together they will have a flex 1 eg .ourSpecials--item--img,
+.ourSpecials--item--info {
+    flex: 1;  RUN THE CODE AND YOU CAN SEE THAT THEY ARE TAKING EQUAL AMOUNT OF SPACE
+
+THEN NEXT LETS GO TO OUR IMAGE : eg.ourSpecials--item--img {
+
+AND ALSO THE ACTUAL IMAGE:Should have object fit cover I think, you already know what it does
+
+So for that we grab the actual image: eg .ourSpecials--item--img img {
+
+THEN NEXT LETS GO TO OUR TITLE: eg .ourSpecials--item--title {
+
+THEN NEXT IS OUR PRICE: eg .ourSpecials--item--price {
+
+THEN NEXT LETS STYLE THE STARS: eg .ourSpecials--item--stars {
+
+AFTER THAT WE ARE MAKING IT RESPONSIVE FOR LAGE DEVICE
+
+We say : @media only screen and (min-width: 768px) {  and first of all we will start with the title
+
+FIRST IS OUR TITLE: eg   .ourSpecials--title { you can see that our title is a litle bit bigger
+
+THEN NEXT IS OUR WRAPPER: For our wrapper eg  .ourSpecials--wrapper {  when ever I say flex-direction: row; you can see that our items are actually in one row. Currently we are having  max-width: 400px;width not this is from small device style we already did. But with width you can see that our food specials items are squashed in a small place(meaning are 400px width). Then when ever we have  max-width: none; it actually takes the whole place (width)  it scales along the space
+
+THEN NEXT IS OUR SPECIAL ITEMS: eg  .ourSpecials--item {
+
+THEN NEXT IS THE TITLE : eg   .ourSpecials--item--title {
+
+THEN NEXT LETS GO TO OUR PRICE: eg  .ourSpecials--item--price {  LOOKING GOOD
+
+WE ALSO WANT TO HAVE ONE MORE MEDIA QUERRIES FOR THE EXTRA LARGE DEVICE, WHEN EVER WE WILL HAVE EXTRA DEVICE LETS CREATE MEDIA QUERY FOR THAT
+
+eg @media only screen and (min-width: 1100px) {  eg  .ourSpecials--item--img {  so when ever we are over 100px our special item image will have a flex:4  and the reight(info) side will have a flex:3
+So when ever I will go more than 1100px width the image will be a litle bit bigger than the content as you can see.
+
+THEN THE SECTION WE HAVE TO CREATE OUR MENU, WE HAVE THE "TOP DISHES",  "BREAKFAST",  "LUNCH" AND  "DINNER"
+
+SO WE HAVE ALREADY MADE THIS LAYOUT BEFORE NOW WHAT WE CAN DO WE CAN GO TO OUR HOME PAGE AND COPY THIS SECTION.
+ 
+THE SECTION WE ARE LOOKING FOR: Is the top dishes section.
+
+SO LETS COPY: The whole whole section starting from the "comment Start Top Dishes" then copy the code and and go to "menu page" 
+
+THEN AFTER : Our "specials section" clossing tag,  "comment End Our special section"  AND AFTER THIS WE PASTE OUR CODE, THEN RUN THE CODE -- YOU CAN SEE ALL THE "TOP DISHES IN OUR NEMU PAGE"
+
+LETS ACTUALLY SEE IF IS OKAY ON OTHER DEVICES, YES AS YOU CAN SEE ALL THE RESPONSIVENESS THAT WE MADE FOR THE HOME PAGE IS STILL AVAILABLE HERE. YOU SEE SEE THAT WE ARE AUTOMATICALLEY HAVING THE STYLE BECAUSE WE STYLE THIS IN OUR COMPONENT.CSS AND WE ALSO HAVE THE COMPONENT.CSS LINKED IN OUR MENU.HTML
+
+SO  THIS "component.css" FILE WILL BE LINKED IN EVERY SINGLE PAGE, SOWHATEVER STYLE WE WRITE IN COMPONENT.CSS EVERY PAGE WILL HAVE ACCESS TO THAT STYLE
+
+THEN NEXT CHANGE THE IMAGES, THE CONTENT AND MAKE THIS YOU OWN FOR THIS PROJECT I WILL KEEP IMAGES AND CONTENT THE SAME
+
+IF YOU NOTICE OUT TOP DISHES WE HAVE 3 DISHES , WE WILL KEEP IT LIKE THAT.
+
+THEN FOR THE BREAKFAST WE WILL HAVE 5 DISHES: SO WHAT WE CAN DO WE CAN ACTUALLY COPY THIS "top dishes code" AGAIN AND DUPLICATE IT. SO SELECT ALL TEXT THEN (press shift + alt + down arrow) AND THAT WILL CREATE A DUPLICATE FOR THE "TOP DISHES" AND THEN INSTEAD OF "TOP DISHES LETS CHANGE THE NAME TO BREAKFAST"
+
+THEN IF YOU SAVE AND RUN THAT YOU SHOULD SEE "BREAKFAST DISHES" THE TEXT IS BEEN UPDATED. THEN NEXT LETS CREATE 2 MORE BECAUSE WE NEED 5 IN TOTAL. SO TO DO THAT I CAN DUPLICATE ONE OF THE ITEM 2 TIMES eg( <div class="dishGrid--item"> ) THEN I SHOULD SEE 5 OF BREAKFAST DISHES
+
+THEN NEXT WE NEED THE LUNCH:So for this I will duplicate the whole "Breakfast section" that we have. Then we can chsnge the text, "Breakfast to lunch"
+
+THEN NEXT WE NEED THE LUNCH :We can do the similar thing we duplicate the lunch and update the the content.
+
+NOW WE HAVE ALL THE MENU THERE, AND YOU CAN CHANGE THE IMAGE AND ALL THE CONTENT
+
+FINALLY WE NEED TO ADD THE SCROLL ANIMATION TO THE FIRST SECTION THAT WE HAVE, WE DIDN'T ADD THAT, THEN THE OTHER SECTION WE WERE DUPLICATING THEY ALREADY HAVE AMINATION BECAUSE WE COPIED FROM THE HOME PAGE.
+
+TO DO THAT: We go to our menu.html and look for the comment "page title" beside the "section id page--title" lets have the "data-aos attribute and the value say fade-up"
+
+THEN ALSO FOR OUR 2ND SECTION: eg --our special section--) I will say data-aos will be the fade-up
+
+ONE MORE THING FOR OUR MENU PAGE AS YOU CAN SEE THAT THE MARGIN BUTTOM FOR EACH OF OUR SECTION FOR OUR "dishGrid" IT IS TOO MUCH ACTUALLY, WE DONT NEED MUCH OF THAT MARGIN IN THE BOTTOM. SO WE NEED TO ADD SOME STYLING FOR THAT.
+
+FOR OUR DISH GRID: Which we have in our "menu.html". Lets create a comment first for that "dish grid styles". So we will grab id dishgrid and say padding-bottom will be the 0. 
+
+Once we have that, you can see that the padding bottom is 0, now the little space that is left is padding top, so we will keep the padding top.
+
+And also for that reason we have the problem at the bottom, we can see that at the bottom of the last section : eg dinner dishes is touching the footer, eg there is no breathing space between the 2.
+
+So to solve that we can actually grab the last item, eg we grab "id dish Grid last of that eg (last-of-type)means the last item, the last item will have padding of 10rem
+eg #dishGrid:last-of-type { So if we do that we can see that the padding bottom of the last item is now 10rem. And all the other sections will have a padding bottom of 0 and the last one will have only padding of 10rem.
+
+IF I GO TO THE LARGE DEVICE WE CAN SEE THAT IS ALSO LOOKING GOOD WE DONT HAVE THIS LONG PADDING AFTER EACH ITEM.
+
+SO WE ARE DONE WITH THE MENU PAGE NOW
+--------------------------------------------------------------------------------------------------------
+NEXT SECTION
+
+					ABOUT PAGE
+				--------------------------
+
+SO IN THE ABOUT US SECTION WE WILL HAVE OUR STORY AND OUR GOALS AND SOME IMAGES. SO LETS CONSTRUCT THAT
+
+LETS FIST PUT A COMMET : "-- Our story section --" Then inside that we will create our html
+
+FIRST WE START WITH: Our section with an id of  "ourStory, then inside that we will have div with a class of container, then inside this container we will have ourStory wrapper eg div with a class of ourStory--wrapper, then inside that we will have we will have our image
+
+So we create a <div> for that with a class of ourStory--img, then inside this we store the image
+
+THEN NEXT AFTER THE IMAGE: The next part we will have information on the right hand side
+
+So after the image div, lets create another div with a class of our story info. Then inside this we will have the title of <h3> of "Our Story". Then after our <h3> we will have a <p> with a class of our story subtitle (copy the subtitle text and paste it in) after that we create another <p> with a class of our story text and we copy the text and paste it in. SO TO CREATE THE SPACE BETWWEN THE PARA WE CAN CREATE 2 <BR> <BR> so save and run the code. YES we can see the line break is working and we can see all the content for our first section
+
+THEN NEXT LETS CREATE A CSS FILE FOR THIS PAGE WITH THE NAME OF "about.css" AND DON'T FORGET TO LINK IT IN THE "about.html" AND THE NAME OF THE FILE IS "about.css"
+
+NOW WE ARE READY TO APPLY THE CSS TO OUR PAGE. FIRST OF ALL LETS GET A COMMENT "our story style"
+
+FIRST THING WE GRAB OURSTORY WRAPPER:eg .ourStory--wrapper {  The wrapper will have a display flex, and if I save and run you can see that is  working. Then flex- direction will  be coloumn. LOOKING GOOD
+
+NEXT IS OUR TITLE: eg .ourStory--title {
+
+NEXT IS THE SUBTITLE: eg .ourStory--subtitle {
+
+NEXT IS OUR TEXT: eg .ourStory--text {
+
+SO NOW IN MOBILE DEVICE IS LOOKING FINE, AND WE NEED TO MAKE IT RESPONSIVE FOR LARGE DEVICE, SO LETS GET MEDIA QUERY FOR THAT WE SAY: eg @media only screen and (min-width: 768px) {   then we grab the wrapper and the flex is row  .ourStory--wrapper {     flex-direction: row;
+
+
+THEN NEXT I WANNA SAY THE IMAGE AND THE CONTENT WILL HAVE THE SAME AMOUNT OF WIDTH, SO FOR THAT WE CAN MAKE BOTH OF THEM FLEX: 1
+
+TO DO THAT WE WILL TAKE: ourStory--img and ourStory--info eg .ourStory--img,
+    .ourStory--info {   SO NOW YOY CAN SEE THAT THEY ARE HAVING THE SAME AMOUNT OF WIDTH
+
+NEXT WE GO TO OUR TITLE: eg   .ourStory--title {
+
+NEXT WE GO TO OUR SUBTITLE: eg  .ourStory--subtitle {
+
+FINALLY OUR TEXT: eg  .ourStory--text {  So in this case we dont need the margin: 0 auto because we dont wanna make it center We want it left aligned
+
+SO IT IS LOOKING GOOD AND ALSO IS RESPONSIVE, THEN ALSO HERE LETS ADD OUR ANIMATION
+
+SO IN OUR ABOUT.HTML BESIDE THE ID = OUR STORY "data-aos will be fade-up". YES WE HAVE IT WORKING
+
+NEXT LETS CREATE OUR NEXT WHICH IS "OUR GOALS SECTION"
+
+AFTER OUR FIRST SECTION MEANING "End of our story section" LETS CREATE OUR COMMENT " Our goals section"
+
+THEN BETWEEN THEM: We will have our HTML, we will start with a section with an id of our goals. Then inside that we will have div with a class of container
+
+IF WE TAKE A LOOK AT THE FINISHED SITE: We can say that we will have 2 parts, "1st part will be the info and 2nd part will be the image". 
+
+SO WE CAN ACTUALLY KEEP THEM SEPARATE: Inside the div conatiner, We say div with a class of "ourgoals--info". THEN inside this div info we will have an <h3> with a class of "ourgoals--title and title is "our goals"
+
+THEN AFTER H3: We will have a <p> with a class of ourGoals--text then copy and paste the text. THEN RUN TO CHECK THE PAGE:and you can see the title and the text.
+
+AND THEN AFTER THAT WE WILL HAVE THE IMAGES: So after the whole info div eg <div class="ourGoals--info"> the closing one lets create another div with a class of "ourGoals--imgs--wrapper --- So here we are using a wrapper because we will have multiple images, that is why we are creating a wrapper for that.
+
+Then inside the wrapper we will have our individual images, so we say div with a class of "ourgoals img 1 and inside that we will have our image "ourgoals image 1.png" from the image folder. So thats our 1st image save and test the page. YES WE CAN SEE THE IMAGE
+
+THEN NEXT LETS DUPLICATE THIS DIV IMG1 2 MORE TIMES AND UPADATE IMAGES: eg <div class="ourGoals--img1"> and src so we save that we can se all the 3 different images.
+
+SO thats it for our HTML now we can go to our css to style 
+
+First of lets create a comment " our goals styles"
+
+THEN FIRST OF ALL WE START WITH OUR GOLAS INFO: eg .ourGoals--info {
+
+AND ALSO IF YOU CAN NOTICE THAT WE HAVE ALREADY HAVE THE STYLE FOR THE TITLE AND ALSO FOR THE TEXT, SO THOSE WILL BE THE SAME STYLING.
+SO NOW WHAT WE CAN DO WHERE WE STYLED  OUR ".ourStory--title { " so we can go back to that css style and say the same style , will be applicable for our "ourGoals--title eg .ourStory--title,
+.ourGoals--title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--black-1);
+    margin-bottom: 1rem;
+}
+So  when ever we do that "ourgoals style" we can see that it is styled the same.
+
+THEN NEXT IN OUR MEDIA QUERY STORY TITLE: eg  (.ourStory--title { ) we need to also do the same with our "ourGoals--title eg  .ourStory--title,
+    .ourGoals--title {
+        font-size: 3.6rem;
+    } Now whenever I go to the larger device I can see that the style is automatically 
+
+THEN NEXT FOR THE TEXT: As you can see eg  ".ourStory--text { (IS THE SAME STYLE WE WANT FOR OUR GOALS TEXT: eg .ourStory--text,
+.ourGoals--text {
+    font-size: 1.4rem;
+    line-height: 1.4em;
+    color: var(--black-2); // I CAN SEE THE STYLE IS HERE BUT ALSO I WANT TO HAVE THE MEDIA QUERY STYLE THATS TO CHANGE TEXT ON LARGE DEVICE
+
+SO THAT MEANS: Inside the media query do the same thing, eg beside the ( .ourStory--text) we wanna have ".our goal text" : SO ONCE WE HAVE THAT PART DONE WE CAN ALSO SEE THAT IN THE LARGE DEVICE WE HAVE THE SAME STYLE
+
+NOW THAT PART IS DONE, LETS GO BACK TO OUR MOBILE DEVICE "--our goals style--" AND CONTINUE
+
+SAY AFTER ".ourGoals--info " next we go to our "ourGoals--imgs--wrapper and inside that we have the "actual image img" eg .ourGoals--imgs--wrapper img {   SO for the actual image object fit will the cover
+
+THEN NEXT WE TO THE WRAPPER: .ourGoals--imgs--wrapper {  will have max-width of 800px and also   margin: 0 auto; because we want to keep it center. we will also have eg  grid-template-columns: 1fr 1fr; ehre we are trying to create the image layout you see in finished project (eg we have 1 image on the left and 2 images on the right which each is half the size of the first image.  IS THE LAYOUT WITH A GRID
+
+AT THIS STAGE WHAT WE WANT : What we need for the columns, we want 2 columns, th 1st for the big image and the 2nd column for the 2 small one eg (  grid-template-columns: 1fr 1fr; ) and the same thing will apply to the row we want 2 grid template rows eg ( grid-template-rows: 1fr 1fr;  )
+
+THEN NEXT WE GO TO OUR IMG1: Because we can see that in our finished project GRID LAYOUT the 1 first image on the left will have the WHOLE COLUMN AS YOU CAN SEE THAT THE FIRST IMAGE WILL BE OCCUPY THE WHOLE COLUMN 1, So for now we can see that we have 2 images but we should have 1. 
+
+SO WE SAY:  our goals--img1 eg ( .ourGoals--img1 {  ) and for img1 the grid row will be 1/3 ( so grid row 1/3)
+ so this means for the 1st image the row it will start from the 1 one up to 3rd one. Which means it will take the whole column.
+SO OUR STYLE FO THIS IS LOOKING GOOD, WHICH IS WHAT WE WANT
+
+NOW WE NEED TO MAKE IT RESPONSIVE FOR THE LARGE DEVICE, IN THE LARGE SCREEN IS NOT LOOKING GOOD IT SHOULD BE CENTERED AS YOU CAN SEE THE TEXT. SO LETS DO THAT
+
+SO IN OUR MEDIA QUERY:  eg @media only screen and (min-width: 768px) {
+
+THEN WE GRAB: Ourgoals--info eg ( .ourGoals--info { )  will have a text aligh of center eg and now it is centered
+
+THEN NEXT IS OUR WRAPPER: eg (  .ourGoals--imgs--wrapper { )  we wanna increase the gap of 2 rem
+
+THEN FINALLY OUR GOAL TEXT: eg    .ourGoals--text {  IS LOOKING GOOD FINALLY I WANNA HAVE THE ANIMATION
+
+FOR "ID OURGOALS" BESIDE THAT WE ADD "data-aos fade-down. Now we cansee that we have the nice animation.
+SO THE 1ST SECTION IS FAIDING UP AND THE 2ND SECTION IS FADING DOWN
+
+THATS THE END OF OUR ABOUT SECTION
+----------------------------------------------------------------------------------------------------------
+
+NEXT SECTION
+
+					CONTACT PAGE
+				--------------------------------
+
+IN OUR CONTACT PAGE FIRST OF ALL WE ARE GOING TO HAVE OUR EXTRA INFORMATION ( location, address, opening hrs) AFTER THAT WE WILL HAVE THE FORM.
+
+IF YOU REMEMBER IN OUR HOME PAGE WE ALREADY HAVE EXTRA INFORMATION ( location, address, opening hrs  (resturant information))
+
+SO NOW ALL WE NEED TO DO IS TO COPY THE CODE FOR  EXTRA INFORMATION  (resturant information) AND ADD IT IN OUR CONTACT PAGE
+
+SO WE NEED TO COPY THE EXTRA INFORMATION (resturant information) FROM OUR HOME PAGE PAGE AND WE COME TO OUR contact.html AND AFTER THE END OF THE NAV MENU AND THATS WHERE WE PASTE OUR CODE, THEN WHEN YOU RUN THE CODE NOW YOU CAN SEE WE HAVE THE (resturant information) 
+
+SO AFTER THE (resturant information) WE HAVE THE CONTACT AND INQUIRY SECTION, LETS CREATE THIS PART.
+
+AFTER (resturant information) CLOSING TAG LETS CREATE A COMMENT "contact form section"
+
+FIRST OF ALL WE CREATE: A section with an id of form, inside that we will have  a div with a class of conatainer, then inside our container we will ahve  <h3> with class of form--title, and title text " Contact & Inquiry" and thats our tilte.
+
+THEN AFTER THAT WE WILL HAVE OUR FORM: So lets get div with a class of form wrapper, then inside of this we will have our form. For now we will not have any kind of action, so lets remove "action"
+
+THEN INSIDE THE FORM: We will have have all the things, first name, last, email, subject and message. So each of them we will wrap them with a form group.  So lets get our first "form-group". so div with a class of form--group. Then inside that we will have  " our label for first name" and if I save and check, I should see the label "First  Name". Then after the label lets create an input and they type will be text which is fine, and after that we will have an id(first name) the name will be also "first name" eg ( <input type="text" id="firstName" name="first_name"> ) and this field will be REQUIRED FIELD
+
+NOW WE CAN SEE THE: When you run the code we can see the " First name, the label and also the field
+
+THEN NEXT : We need to do the same for our every single field as you can see from the "fist name label
+
+THEN NEXT: To do that lets duplicate the first field group means the form group ( <div class="form--group"> )
+
+THEN NEXT UPDATE THE 2ND ONE: For the 2nd one label for it should be "lastName", and "input type "id = "lastname" and name. Then run the code and I should see the second field.
+
+THEN NEXT UPDATE THE 3RD ONE: Is for email, you can see now we have an email
+
+THEN NEXT:  lets duplicate "email" to create the subject field -- label for will be "subject", and the type will be "text 
+
+THEN THE LAST ONE IS THE MESSAGE:We duplicate the subject ,then label for will be "message". THEN instead of having input type we will delete that and instead use "text area" THE name will be "the message" ID will be "message" as well and col and row is fine. Run the code : I can see the message and text area box and we also add "required" to the texarea and that's it.
+
+THEN NEXT THE FINAL THING WE NEED THE BUTTON: Then after the "message form group div" we create a button. This button will have a type "the type will be submit" then after submit we will have a class called "btn primary btn" and the text will be "send" then run the code and we can see the button.
+
+THEN NEXT WE NEED TO APPLY THE STYLING: SO FOR THAT WE ARE GOING TO USE THE "component.css" FILE
+
+BECAUSE IF YOU CAN SEE ON THE FINISHED PROJECT, WE WILL HAVE HAVE 2 FORMS - WE ARE GOING TO HAVE THIS (CONTACT FORM) AND WE ATR GOING TO HAVE A (BOOKING FROM) YOU CAN SEE THAT THE STYLE WILL BE THE SAME FOR BOTH FORMS. SO THAT IS THE REASON WE HAVE TO STYLE THE FORM IN THE COMPONENT.CSS SO THAT WE CAN HAVE THE SAME STYLE FROM A SINGLE CSS FILE.
+
+SO LETS HEAD OVER TO: (component.css)- in the end of the file lets start with a "comment : form styles"
+
+THEN LETS START BY : Grabbing the form id eg #form {
+
+THEN NEXT FORM TITLE : eg .form-title {
+
+THEN NEXT IS OUR FORM WRAPPER: eg .form--wrapper {
+
+THEN NEXT: Inside the form wrapper we have the form eg .form--wrapper form { (here we will display the whole form as grid, after that it would be grid-template-columns it will be 1 col layout eg 1fr). Then the gap between every row there will be 2 rem gap.
+
+THEN NEXT LETS GO:To our label eg .form--group label {
+
+THEN NEXT LETS GO TO OUR INPUT: And also we will have the "textarea and both input and this will have the same style" and also if we look at the booking page for the finished project, there will be the "select fields in the booking page". So this select fields will also have the same style as the "input and textarea" so lets grab those 3. So when ever we will have any "select element in our book table page, thats why we have the select field"  it will have the same style eg
+.form--group input,
+.form--group textarea,
+.form--group select {  (border none removes the line around the element), we can see that right now the font is 1.4rem thats why the input box have a thin small height.So we need some padding 1.5 in this so that we have a nice looking input fields. Now you see that the HEIGHT IS OKAY. Then this (  margin-top: 0.5rem; ) will help us to separate the label "name, email text etc" from the field - that is creating a space between the 2
+
+THEN NEXT TEXT AREA: For the "text area" we need a particular style eg .form--group textarea {
+
+THEN NEXT WE STYLE THE BUTTON: So inside the form we have a button and the btton type is submit eg .form--wrapper button[type=submit] {  NOW OUR BUTTON IS LOOKING GOOD.
+
+NOW WE NEED TO MAKE IT RESPONSIVE FOR LARGE DEVICE AND MAKE IT LOOK MORE ELEGANT
+
+SO LETS GET GET MEDIA QUERY FIRST OF ALL: eg @media only screen and (min-width: 768px) {
+
+THEN AFTER THAT WE GRAB: The form title eg  .form--title { THATS LOOK GOOD
+
+THEN NEXT IS THE FORM WRAPPER: eg  .form--wrapper {
+
+THEN NEXT IS THE FORM: Inside our form wrapper we have the form, we have to change" the grid tempalte col" IF YOU REMEMBER WHAT WE HAD WAS 1 COL (grid-template-columns: 1fr;) NOW WE NEED TO MAKE IT 2 COLS (   grid-template-columns: 1fr 1fr; )
+
+THEN NEXT IS THE TEXT AREA: Now we need to make the message box full width
+
+TO DO THAT : We nedd to go back to our "contact.html" then look for the code which is related to this group of the message eg is this fromline 108  :<div class="form--group">
+                    <label for="message">Message</label>
+                    <textarea name="" id="" cols="30" rows="10" required></textarea>
+                </div>
+And beside the form group class eg <div class="form--group"> we need to add another class name "form--group--full"
+
+THEN NEXT : In our css lets select this .form--group--full eg  .form--group--full {  this means this class will have the full width, so I will say gird-col it will start from 1 and it will end in the 3rd grid line. then if you run the code you can see that it starts, from the 1st  grid col line, extend to the 2nd grid col line and finally to the 3rd grid col line thus spreading across the page. now you can see that the mesaage is actually having the full width and thats what we want.
+
+THEN NEXT IS THE LABEL: eg   .form--group label {
+
+THEN NEXT: For all the fields meaning form group input and the "text area" and also for the "select" so the font size will be also inceased eg 
+ 	.form--group input,
+    .form--group textarea,
+    .form--group select {
+NOW OUR CONTACT FORM IS LOOKING GOOD, AND FINALLY WE NEED TO ADD THE ANIMATION
+
+IN OUR (contact.html) WE NEED TO ADD THE AOS ANIMATION LEBRARY IN OUR FORM SECTION ELEMENT "after id =" form" WE NEED TO ADD THE DATA AOS AND GIVE IT A FADE-DOWN VALUE
+ 
+SO THATS THE END OF OUR CONTACT PAGE
+----------------------------------------------------------------------------------------------------------
+
+NEXT SECTION
+
+					BOOKING PAGE
+					--------------
+RIGHT NOW WE DONT HAVE ANY CONNTENT
+
+WE HEAD OVER TO OUR "booking.html page"
+
+NOW LETS START MAKE THE BOOKING PAGE: Right now we have the NAV MENU AND THE FOOTER ONLY
+
+WE NEED TO CREATE THE BOOKING FORM ONLY: Lets start putting a comment for our html "booking setction"
+
+THEN NEXT: We start by creating a section with an id of "form" ( if you remember this id eg section id="form"> we have used it in our contact page form already) actually alsow with the "form--wrapper, form--group etc" SO ALLL THESE CLASSES WE WILL USE THE SAME CLAASSES IN OUR BOOKING PAGE.
+
+AND THATS ACTUALLY WHY WE WILL HAVE THE SAME STYLE IN OUR BOOKING PAGE.
+
+THEN NOW INSIDE THE "|section id form" lets have the <div> with a class of conatiner. Then inside of this conatiner we will have our form title with <h3> with a "class of form title" with title (Book Table) then if I save and run the code I can see the book table.
+
+SO IF YOU NOTICE: This "Book Table" TITLE is alreay has a style, this is because we have this style ( <h3 class="form--title">Contact & Inquiry</h3> ) from our "contact page" So in our contact page we used the form title eg " h3 class="form--title" " and we styled this in our (component.css)
+
+SO NOW WHEN EVER I USE: this classes eg ( class="form--title"),  ( class="form--group" ), and ( class="form--group form--group--full"> ) when ever I will use this classes I will have the exact same style that we have in our contact.html
+
+THEN NEXT AFTER THE H3: We will have our form, so lets start creating a div with a class of form wrapper first of all eg (  <div class="form--wrapper"> ) AGAIN THIS IS THE EXACT SAME CLASS WE HAVE IN OUR "contact page" eg (<div class="form--wrapper"> contact.html)
+
+THEN NEXT: Inside the form--wraper we will have the form, and then inside the form we will have all the fields. So lets create the first fields, as you can see the first fields on our form is "first name and last name"  exactly the same as what we have in the CONTACT FORM in the the conatct page. So we can actully copy the "first name and last name fields"  from our contact.html and paste it inside the booking form,run the code and we can see the 2 fields. The first name and last name.
+
+THEN NEXT IS EMAIL: For that we can actauuly copy the email field form "contact.html" because those will be the same. run the code as check and we can see the email field.
+
+THEN NEXT WE HAVE: The the table type. So this is a select field that we did not have in our "contact.html" So this is a new field lets create this. After the <div> form--group for email we create anothe div form--group
+
+THEN NEXT IS TABLE TYPE: Inside that we will have a label for "will be the tableType", and text is "Table Type"
+
+THEN NEXT SELECT FIELD: Inside this select type we will have a SELECT FIELD, so below the label we create a select element it should be a have "required field". The name of the select field will be the table_type, and id will be "tableType" and inside this select field.
+
+THEN NEXT INSIDE THE SELECT FIELD: We will have or options. So let create our first option. Then the value of this 1st option will not have any value, so we will make it default or we can say "seleceted" and also this is disabled no one can select it, and then the text for that will be "choose".
+
+THEN NEXT DUPLICATE THAT: And the 2nd one the text will be ( small in brackets 2persons) and the where we have "selected disabled" we dont want that , we change it and say value, and for the value we will say "small" table
+
+THEN NEXT DUPLICATE THAT: We duplicate that and the value for that it will be "medium" table this one it will be for 4 persons
+
+THEN NEXT DUPLICATE THAT: We duplicate that and the value for that it will be "large" table this one it will be for 6 persons.
+
+THEN SAVE AND CHECK: I can see that I have the select field with a drop down, and if you notice the "AUTOMATIC SELECTOR ONE" Is the one which means this option (<option selected disabled>Choose</option> ) is the one which is AUTOMATICALLY SELECTED and aslo if you noticed that, this is disabled, means you can not select if manually for example lets say if I try to select small 2 people and after that if you want to go to back or if you want to select "choose" you are not able to do so. THAT IS ONLY FOR DEFAULT TEXT IF I MAY SAY.
+
+12 MINUTES OVEN
+
+THEN NEXT AFTER OUR SELECT FIELDS:WE HAVE THE GUEST NUMBER: Lets create this , so after the whole form group, lets create another <div> with a class of "form--group", then inside this div we will have a "LABEL" for the guestNumber and text will be "Guest Number".
+
+THEN NEXT WE SAY INPUT: Then below the label we say (input) type will be number and id will be "guestNumber", after the id we will add a name and the name will be "guest_number", then after the name we add the "min" the minimum value will be "1" and the maximum number can be "10" and we make this a required field.
+
+NOW RUN THE CODE: And we can seewe have the guest number field, and you can only type a number no any other characters allowed
+
+THEN NEXT WE GO TO PLACEMENT: This is another select option, so we can copy the select option that we already created and paste it after the <div form group for guest number> RUN CODE TO CHECK AND WE HAVE 2 TABLE TYPE DROP DOWN, Then lets update the TITLE instead of "table Type" we say "PLACEMENT" and also the "for will be placement"
+THEN WE MOVE IN TO THE SELECT FIELD: The name should be the "placement", the id again it should be the "placement".
+
+THEN NEXT FOR THE OPTIONS: Lets say that 1st OPTION will be the "OUTDOOR" so value = "outdoor" and text will be "OUTDOOR". Then duplicate this option again and the 2nd option should be "INDOOR" same as the value. Then duplicate this option again and the 3nd option should be "ROOFTOP" same as the value. THEN SAVE AND CHECK: So I CAN SEE THE LABEL PALCEMENT AND ALL THE OPTIONS
+
+THEN NEXT IS THE DATE AND TIME:Lets create this after the (div class form--group for placement). We create a div with a class of form--group. Inside this div we create a <label>. The label "for will be date" and text will be "Date"
+
+THEN NEXT IS INPUT: Then we create an input for the "date" and the "type will be date",  the "id will be date as well",  and "name will be the "date" and this is also "required field" 
+
+THEN NEXT WE DUPLICATE: We can duplicate the <div class form--group for "DATE" for our time. And the "type will be time", the "id will be time", the "name will be time" and this is a required field. THEN RUN THE CODE AND CHECK
+
+NOW I CAN SEE THAT WE HAVE DATE AND TIME.
+
+THEN FINALLY WE WILL HAVE THE "NOTE" , AS YOU CAN SEE THIS IS SIMILAR TO WHAT WE HAVE IN OUR MESAAGE (contact.html). WE HAVE A MESSAGE TITLE AND TEXT AREA. SO WE CAN COPY THIS AND USE I FOR OUR "NOTE", THEN PASTE IT AFTER THE TIME CLOSING DIV. RUN THE CODE AND CHECK - AS YOU CAN SEE THAT WE THE MESSAGE TEXT AREA.
+
+THEN NEXT IS TO UPDATE THE TEXT: Instead on "Message we will say Note", label for will be note, name will be note, id will be note.
+
+THEN NEXT ONE THING WE NEED TO CHANGE: We don't need cols="30" but we will keep row. But instead of having "10 rows" we will have only "4 rows". that means the text area will be more shorter.
+
+THEN NEXT WE NEED THE BUTTON:For this we can copy the same button from our (contact.html) and paste it after the div with text area. Then run the code and check and we have the exact same button that we styled in the contact page.
+SO IT IS NOW LOOKING GOOD ON MIBLE DEVICE AND IN THE LARGE DEVICE IS ACTUALLY ALSO LOOKING GOOD
+
+NOTE: AS YOU CAN SEE THAT ON LARGE DEVIVE THE "NOTE" IS HAVING FULL WIDTH, THE REASON BEHIND THAT IS ACTUALLY WE AHRE HAVING "FORM GROUP FULL" IN THIS NOTE eg (  <div class="form--group form--group--full"> ). THATS THE REASON WE HAVE A FULL WIDTH.
+
+ALL THE OTHER ONE WE DONT HAVE THIS ( form--group--full"> ) RATHER IT IS HAVING A 50% WIDTH AND ITLOOKS REALLY NICE.
+
+THAT IS ALL FOR OUR BOOKING PAGE, NOW I NEED TO ADD THE "aos library animation" AND WE DO THAT BESIDE THIS 
+<section id="form">
+
+SO THATS IT AS YOU CAN SEE WE ARE DONE WITH THE (contact.html) AND ALSO WE DONE WITH (booking.html) THIS MEANS WE ARE DONE WITH ALL THE PAGES IN OUR WEBSITE
+
+
+
+JOBS 
+https://www.reperiohumancapital.com/jobs-search?location=Dublin%20City%20Centre%2C%20Dublin%2C%20Republic%20of%20Ireland&job_type=permanent&post_date=7&category=19&salary=40000
+
+
+https://www.linkedin.com/jobs/search/?currentJobId=3614639061&keywords=graduate%20software%20engineer&originalSubdomain=ie&start=50
+
+
+
+
+graduate software engineer
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
