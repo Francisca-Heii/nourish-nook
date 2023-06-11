@@ -1,7 +1,8 @@
-# Shaif's Cuisine
+# Nourish-Nook
 
-**A HTML CSS Project**. Mede with ♥ by web cifar community <br>
+**A HTML CSS Project**. Made with ♥ by Francisca Heii <br>
 live Preview: [Click Me](http://shaif-s-cuisine.netlify.app)
+live Preview: [Click Me](https://nourish-nook.netlify.app)
 
 ![](./readmeImg/banner.png)
 
