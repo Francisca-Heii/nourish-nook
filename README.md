@@ -1,7 +1,7 @@
 # **Nourish-Nook**
 live Preview: [Click Me](https://nourish-nook.netlify.app)
 
- [here](https://megit.com/careers)
+ [here](https://github.com/Francisca-Heii/)
 
 
 
