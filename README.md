@@ -1,6 +1,9 @@
 # **Nourish-Nook**
 live Preview: [Click Me](https://nourish-nook.netlify.app)
 
+ [here](https://github.com/Francisca-Heii)
+
+
 ![Website in different screens](images/img-responsive.jpg)
 ## Project Goals
 The idea for this project has always been something that I would like to see more when searching for a restaurant in my neighbourhood. From having a background in food, whenever I try and look for healthier dishes, some sites just bombard you with any menu items unless one commit to a longer distance to look for a better place. I wanted to make a website that is clean, appealing to the eye and straight forward to what the person is looking for.
